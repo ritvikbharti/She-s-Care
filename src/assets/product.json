@@ -1,0 +1,48 @@
+[
+    {
+      "id": 1,
+      "name": "Dhootapapeshwar Asthiposhak, 60 Tablets",
+      "description": "Supports bone health and strength, beneficial for women with PCOD.",
+      "price": 238,
+      "originalPrice": 280,
+      "discount": "15% off",
+      "imageUrl": "/assets/asthiposhak.png"
+    },
+    {
+      "id": 2,
+      "name": "Himalaya Evecare Syrup",
+      "description": "Helps regulate menstrual cycles, recommended for PCOD support.",
+      "price": 135,
+      "originalPrice": 150,
+      "discount": "10% off",
+      "imageUrl": "/assets/evecare.png"
+    },
+    {
+      "id": 3,
+      "name": "Organic India Women's Well-being Capsules",
+      "description": "Supports hormonal balance and menstrual health.",
+      "price": 295,
+      "originalPrice": 330,
+      "discount": "11% off",
+      "imageUrl": "/assets/womens-wellbeing.png"
+    },
+    {
+      "id": 4,
+      "name": "Charak Regunova Plus Tablet",
+      "description": "Natural formulation for hormonal balance and improved reproductive health.",
+      "price": 320,
+      "originalPrice": 350,
+      "discount": "9% off",
+      "imageUrl": "/assets/regunova.png"
+    },
+    {
+      "id": 5,
+      "name": "Baidyanath Shatavari Kalp",
+      "description": "Helps in hormone regulation and menstrual health.",
+      "price": 200,
+      "originalPrice": 220,
+      "discount": "9% off",
+      "imageUrl": "/assets/shatavari.png"
+    }
+  ]
+  

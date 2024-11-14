@@ -1,0 +1,94 @@
+[
+      {
+        "id": 1,
+        "question": "How would you describe your menstrual cycle pattern?",
+        "options": [
+          { "option": "Regular (Occurs every 21–35 days)", "value": "regular" },
+          { "option": "Irregular (Occurs more than 35 days apart)", "value": "irregular" },
+          { "option": "Skipped (Skipped for several months)", "value": "skipped" },
+          { "option": "Absent (No periods at all)", "value": "absent" }
+        ]
+      },
+      {
+        "id": 2,
+        "question": "When you have your period, how long does it usually last?",
+        "options": [
+          { "option": "3–7 days (Normal duration)", "value": "normal" },
+          { "option": "Less than 2 days", "value": "short" },
+          { "option": "More than 7 days", "value": "long" }
+        ]
+      },
+      {
+        "id": 3,
+        "question": "How would you describe your menstrual flow?",
+        "options": [
+          { "option": "Light to Moderate", "value": "light" },
+          { "option": "Very Heavy (Often with clots)", "value": "heavy" },
+          { "option": "Spotting or Very Light", "value": "spotting" }
+        ]
+      },
+      {
+        "id": 4,
+        "question": "Have you noticed any of the following? (Select all that apply)",
+        "options": [
+          { "option": "Excess facial hair growth (On face, chin, or upper lip)", "value": "facial_hair" },
+          { "option": "Excess body hair growth (On chest, back, or abdomen)", "value": "body_hair" },
+          { "option": "Thinning hair or bald patches on scalp", "value": "hair_thinning" },
+          { "option": "None of these", "value": "none" }
+        ]
+      },
+      {
+        "id": 5,
+        "question": "Do you experience frequent acne breakouts?",
+        "options": [
+          { "option": "Yes, often (On face, chest, or back)", "value": "often" },
+          { "option": "Sometimes (Occasional breakouts)", "value": "sometimes" },
+          { "option": "No, rarely", "value": "rarely" }
+        ]
+      },
+      {
+        "id": 6,
+        "question": "Have you gained weight recently, especially around your abdomen?",
+        "options": [
+          { "option": "Yes, significant weight gain", "value": "significant" },
+          { "option": "Yes, mild weight gain", "value": "mild" },
+          { "option": "No noticeable weight gain", "value": "no" }
+        ]
+      },
+      {
+        "id": 7,
+        "question": "Have you noticed darkened skin patches in any of the following areas?",
+        "options": [
+          { "option": "Neck", "value": "neck" },
+          { "option": "Armpits", "value": "armpits" },
+          { "option": "Groin area", "value": "groin" },
+          { "option": "No, none of these", "value": "none" }
+        ]
+      },
+      {
+        "id": 8,
+        "question": "Have you experienced difficulty conceiving or been diagnosed with infertility?",
+        "options": [
+          { "option": "Yes, difficulty conceiving", "value": "difficulty" },
+          { "option": "No", "value": "no" },
+          { "option": "Not applicable", "value": "not_applicable" }
+        ]
+      },
+      {
+        "id": 9,
+        "question": "Do you frequently feel fatigued or experience mood swings?",
+        "options": [
+          { "option": "Yes, frequently", "value": "frequently" },
+          { "option": "Sometimes", "value": "sometimes" },
+          { "option": "Rarely or never", "value": "rarely" }
+        ]
+      },
+      {
+        "id": 10,
+        "question": "Does anyone in your immediate family have PCOD, diabetes, or any other hormonal disorder?",
+        "options": [
+          { "option": "Yes, diagnosed family members", "value": "yes" },
+          { "option": "No", "value": "no" }
+        ]
+      }
+    ]
