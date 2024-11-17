@@ -1,38 +1,77 @@
-[
-    {
-      "name": "Ritvik",
-      "specialization": "Cardiologist",
-      "image": "https://via.placeholder.com/150"
-    },
-    {
-      "name": "Sarah",
-      "specialization": "Dermatologist",
-      "image": "https://via.placeholder.com/150/0000FF/808080"
-    },
-    {
-      "name": "John",
-      "specialization": "Neurologist",
-      "image": "https://via.placeholder.com/150/FF6347/FFFFFF"
-    },
-    {
-      "name": "Alice",
-      "specialization": "Pediatrician",
-      "image": "https://via.placeholder.com/150/90EE90/000000"
-    },
-    {
-      "name": "David",
-      "specialization": "Orthopedic Surgeon",
-      "image": "https://via.placeholder.com/150/FFD700/000000"
-    },
-    {
-      "name": "Emma",
-      "specialization": "Gynecologist",
-      "image": "https://via.placeholder.com/150/8A2BE2/FFFFFF"
-    },
-    {
-      "name": "Michael",
-      "specialization": "General Practitioner",
-      "image": "https://via.placeholder.com/150/32CD32/FFFFFF"
-    }
-  ]
+{
+    "Recommended": [
+      {
+        "name": "Ritvik",
+        "specialization": "Cardiologist",
+        "image": "https://via.placeholder.com/150"
+      },
+      {
+        "name": "Sarah",
+        "specialization": "Dermatologist",
+        "image": "https://via.placeholder.com/150/0000FF/808080"
+      },
+      {
+        "name": "John",
+        "specialization": "Neurologist",
+        "image": "https://via.placeholder.com/150/FF6347/FFFFFF"
+      },
+      {
+        "name": "Alice",
+        "specialization": "Pediatrician",
+        "image": "https://via.placeholder.com/150/90EE90/000000"
+      },
+      {
+        "name": "David",
+        "specialization": "Orthopedic Surgeon",
+        "image": "https://via.placeholder.com/150/FFD700/000000"
+      },
+      {
+        "name": "Emma",
+        "specialization": "Gynecologist",
+        "image": "https://via.placeholder.com/150/8A2BE2/FFFFFF"
+      },
+      {
+        "name": "Michael",
+        "specialization": "General Practitioner",
+        "image": "https://via.placeholder.com/150/32CD32/FFFFFF"
+      }
+    ],
+    "Specialized": [
+      {
+        "name": "Ritvik",
+        "specialization": "Cardiologist",
+        "image": "https://via.placeholder.com/150"
+      },
+      {
+        "name": "Sarah",
+        "specialization": "Dermatologist",
+        "image": "https://via.placeholder.com/150/0000FF/808080"
+      },
+      {
+        "name": "John",
+        "specialization": "Neurologist",
+        "image": "https://via.placeholder.com/150/FF6347/FFFFFF"
+      },
+      {
+        "name": "Alice",
+        "specialization": "Pediatrician",
+        "image": "https://via.placeholder.com/150/90EE90/000000"
+      },
+      {
+        "name": "David",
+        "specialization": "Orthopedic Surgeon",
+        "image": "https://via.placeholder.com/150/FFD700/000000"
+      },
+      {
+        "name": "Emma",
+        "specialization": "Gynecologist",
+        "image": "https://via.placeholder.com/150/8A2BE2/FFFFFF"
+      },
+      {
+        "name": "Michael",
+        "specialization": "General Practitioner",
+        "image": "https://via.placeholder.com/150/32CD32/FFFFFF"
+      }
+    ]
+  }
   

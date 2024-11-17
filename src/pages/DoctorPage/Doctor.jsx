@@ -22,17 +22,17 @@ export default function Doctor() {
             <h3 className="text-lg md:text-xl font-semibold text-white mb-4">Recommended</h3>
             <div className="space-y-4">
               <div className="bg-dark-900 h-[auto] rounded-lg shadow-md flex px-[2rem] py-[2rem] flex-wrap">
-              {doctorData.map((doctor, index) => (
-                <DoctorCard
-                  key={index}
-                  name={doctor.name}
-                  specialization={doctor.specialization}
-                  image={doctor.image}
-                />
-              ))}
+              {doctorData.Recommended.map((doctor, index) => (
+                  <DoctorCard
+                    key={index}
+                    name={doctor.name}
+                    specialization={doctor.specialization}
+                    image={doctor.image}
+                  />
+                ))}
               </div>
               <div className="bg-dark-900 h-[200px] rounded-lg shadow-md"></div>
-              <div className="bg-white h-[200px] rounded-lg shadow-md"></div>
+             
             </div>
           </section>
 
@@ -40,15 +40,23 @@ export default function Doctor() {
           <section>
             <h3 className="text-lg md:text-xl font-semibold text-white mb-4">Our Specialists</h3>
             <div className="space-y-4">
-              <div className="bg-white h-[150px] rounded-lg shadow-md"></div>
-              <div className="bg-white h-[150px] rounded-lg shadow-md"></div>
+            <div className="bg-dark-900 h-[auto] rounded-lg shadow-md flex px-[2rem] py-[2rem] flex-wrap">
+            {doctorData.Specialized.map((doctor, index) => (
+                  <DoctorCard
+                    key={index}
+                    name={doctor.name}
+                    specialization={doctor.specialization}
+                    image={doctor.image}
+                  />
+                ))}
+              </div>
             </div>
           </section>
         </main>
 
         {/* Right Chat Section */}
         <aside className="w-full md:w-1/4 lg:w-1/5 bg-secondary p-4 flex flex-col items-center ">
-        <section className="flex flex-col items-center py-6 space-y-6">
+        <section className=" flex flex-col items-center py-6 space-y-6">
   {/* Section Title */}
   {/* <h1 className="text-white text-xl font-semibold">Current Online Doctor</h1> */}
 
