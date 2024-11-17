@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar";
 import ProductCard from "./ProductCard";
 import { FiSearch } from "react-icons/fi";
 import { FaCartShopping } from "react-icons/fa6";
-import productData from "E:/fairymate-ui/fairymate-ui/src/assets/product.json"
+import productData from "../../assets/product.json"
 export default function Product() {
   return (
     <div className="h-screen ">

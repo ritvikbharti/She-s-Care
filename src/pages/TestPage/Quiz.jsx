@@ -1,6 +1,5 @@
 import React from "react";
-import questions from 'E:/fairymate-ui/fairymate-ui/src/assets/questions.json';
-
+import questions from '/Users/ritvikbharti/Documents/fairymate-ui/src/assets/questions.json'
 export default function Quiz() {
     return (
         <div className="my-8 h-fit">

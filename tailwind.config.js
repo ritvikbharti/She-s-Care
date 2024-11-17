@@ -10,6 +10,7 @@ export default {
       primary_dark : '#202445',
       regal_blue: '#272d4d',
       secondary_dark : '#333a65',
+      primary_gray : 'rgb(148 163 184)',
       dark : {
         400 : '#464f8b',
         600 : '#333a65',
