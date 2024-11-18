@@ -7,8 +7,9 @@ import { Router, Route, Routes } from 'react-router-dom'
 import Test from './pages/TestPage/Test'
 import Doctor from './pages/DoctorPage/Doctor'
 import Product from './pages/ProductPage/Product'
+import Order from './pages/OrderPage/Order'
 import Dashboard from './pages/DashboardPage/Dashboard'
-
+// rfc
 function App() {
   const [count, setCount] = useState(0)
 
@@ -19,8 +20,9 @@ function App() {
       <Route path='/doctor' element={<Doctor/>}/>
       <Route path='/product' element={<Product/>}/>
       <Route path='/dashboard' element={<Dashboard/>}/>
+      <Route path='/order' element={<Order/>}/>
     </Routes>  
-  )
+  ) 
 }
 
 export default App

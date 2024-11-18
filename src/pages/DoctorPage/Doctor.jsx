@@ -22,17 +22,17 @@ export default function Doctor() {
             <h3 className="text-lg md:text-xl font-semibold text-white mb-4">Recommended</h3>
             <div className="space-y-4">
               <div className="bg-dark-900 h-[auto] rounded-lg shadow-md flex px-[2rem] py-[2rem] flex-wrap">
-              {doctorData.Recommended.map((doctor, index) => (
-                  <DoctorCard
-                    key={index}
-                    name={doctor.name}
-                    specialization={doctor.specialization}
-                    image={doctor.image}
-                  />
-                ))}
+              {doctorData.map((doctor, index) => (
+                <DoctorCard
+                  key={index}
+                  name={doctor.name}
+                  specialization={doctor.specialization}
+                  image={doctor.image}
+                />
+              ))}
               </div>
               <div className="bg-dark-900 h-[200px] rounded-lg shadow-md"></div>
-             
+              <div className="bg-white h-[200px] rounded-lg shadow-md"></div>
             </div>
           </section>
 
