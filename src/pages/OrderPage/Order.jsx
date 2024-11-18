@@ -20,6 +20,10 @@ import o2 from '../../assets/offer02.jpg'
 import o3 from '../../assets/offer03.jpg'
 import o4 from '../../assets/offer04.jpg'
 
+import p1 from '../../assets/charak01.jpeg'
+import p2 from '../../assets/asthiposhak.png'
+
+
 export default function Order() {
   const [quantities, setQuantities] = useState({ product1: 1, product2: 1 })
   const images = [
@@ -38,19 +42,14 @@ export default function Order() {
             <img src={o2} alt="" className='rounded-xl' />
           </div>
 
+
           {/* Products */}
           <div className="space-y-4">
             <h2 className="text-sm text-muted-foreground">PRODUCTS</h2>
             
             <Card>
               <CardContent className="p-4 flex gap-4 rounded-xl bg-dark-400">
-                {/* <Image
-                  src="/placeholder.svg?height=80&width=80"
-                  alt="Cetaphil Moisturising Cream"
-                  width={80}
-                  height={80}
-                  className="rounded-md"
-                /> */}
+               <img src={p1} alt="" className='w-32 rounded-lg'/>
                 <div className="flex-1 space-y-1 ">
                   <h3 className="font-medium">CETAPHIL MOISTURISING Cream 250gm</h3>
                   <p className="text-sm text-muted-foreground">Mfr: Galderma India Pvt Ltd</p>
@@ -81,22 +80,16 @@ export default function Order() {
 
             <Card>
               <CardContent className="p-4 flex rounded-xl gap-4 bg-dark-400">
-                {/* <Image
-                  src="/placeholder.svg?height=80&width=80"
-                  alt="Dr. Odin Blood Glucose Test Strips"
-                  width={80}
-                  height={80}
-                  className="rounded-md"
-                /> */}
+              <img src={p2} alt="" className='w-32 rounded-lg'/>
                 <div className="flex-1 space-y-1">
                   <h3 className="font-medium">Dr. Odin Blood Glucose Test Strips - (GDH-FAD) (AC-307) (Pack of 2 x 25's)</h3>
-                  <p className="text-sm text-muted-foreground">Mfr: PASSIM MEDICHEM AGENCIES</p>
+                  <p className="text-sm text-primary-gray-100">Mfr: PASSIM MEDICHEM AGENCIES</p>
                   <div className="flex items-baseline gap-2">
                     <span className="text-lg font-bold">₹918.00</span>
                     <span className="text-sm text-muted-foreground line-through">₹1,350.00</span>
-                    <span className="text-sm text-green-600">Save ₹432.00</span>
+                    <span className="text-sm ">Save ₹432.00</span>
                   </div>
-                  <p className="text-sm text-green-600">Only 7 Left In Stock</p>
+                  <p className="text-sm text-primary">Only 7 Left In Stock</p>
                   <p className="text-sm text-muted-foreground">Delivery between NOVEMBER 20-NOVEMBER 21</p>
                 </div>
                 <div className="flex flex-col items-end gap-2">
