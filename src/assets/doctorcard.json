@@ -3,74 +3,116 @@
       {
         "name": "Ritvik",
         "specialization": "Cardiologist",
-        "image": "https://via.placeholder.com/150"
+        "image": "src/assets/doctors/ritvik.png",
+        "contact": "+1234567890",
+        "experience": "10 years",
+        "fee": "$150"
       },
       {
         "name": "Sarah",
         "specialization": "Dermatologist",
-        "image": "https://via.placeholder.com/150/0000FF/808080"
+        "image": "src/assets/doctors/sarah.png",
+        "contact": "+1234567891",
+        "experience": "8 years",
+        "fee": "$120"
       },
       {
         "name": "John",
         "specialization": "Neurologist",
-        "image": "https://via.placeholder.com/150/FF6347/FFFFFF"
+        "image": "src/assets/doctors/jhon.png",
+        "contact": "+1234567892",
+        "experience": "15 years",
+        "fee": "$200"
       },
       {
         "name": "Alice",
         "specialization": "Pediatrician",
-        "image": "https://via.placeholder.com/150/90EE90/000000"
+        "image": "src/assets/doctors/alice.png",
+        "contact": "+1234567893",
+        "experience": "7 years",
+        "fee": "$100"
       },
       {
         "name": "David",
         "specialization": "Orthopedic Surgeon",
-        "image": "https://via.placeholder.com/150/FFD700/000000"
+        "image": "src/assets/doctors/david.png",
+        "contact": "+1234567894",
+        "experience": "12 years",
+        "fee": "$180"
       },
       {
         "name": "Emma",
         "specialization": "Gynecologist",
-        "image": "https://via.placeholder.com/150/8A2BE2/FFFFFF"
+        "image": "src/assets/doctors/emma.png",
+        "contact": "+1234567895",
+        "experience": "9 years",
+        "fee": "$130"
       },
       {
         "name": "Michael",
         "specialization": "General Practitioner",
-        "image": "https://via.placeholder.com/150/32CD32/FFFFFF"
+        "image": "src/assets/doctors/michael.png",
+        "contact": "+1234567896",
+        "experience": "5 years",
+        "fee": "$80"
       }
     ],
     "Specialized": [
       {
         "name": "Ritvik",
         "specialization": "Cardiologist",
-        "image": "https://via.placeholder.com/150"
+        "image": "src/assets/doctors/ritvik.png",
+        "contact": "+1234567890",
+        "experience": "10 years",
+        "fee": "$150"
       },
       {
         "name": "Sarah",
         "specialization": "Dermatologist",
-        "image": "https://via.placeholder.com/150/0000FF/808080"
+        "image": "src/assets/doctors/sarah.png",
+        "contact": "+1234567891",
+        "experience": "8 years",
+        "fee": "$120"
       },
       {
         "name": "John",
         "specialization": "Neurologist",
-        "image": "https://via.placeholder.com/150/FF6347/FFFFFF"
+        "image": "src/assets/doctors/jhon.png",
+        "contact": "+1234567892",
+        "experience": "15 years",
+        "fee": "$200"
       },
       {
         "name": "Alice",
         "specialization": "Pediatrician",
-        "image": "https://via.placeholder.com/150/90EE90/000000"
+        "image": "src/assets/doctors/alice.png",
+        "contact": "+1234567893",
+        "experience": "7 years",
+        "fee": "$100"
       },
       {
         "name": "David",
         "specialization": "Orthopedic Surgeon",
-        "image": "https://via.placeholder.com/150/FFD700/000000"
+        "image": "src/assets/doctors/david.png",
+        "contact": "+1234567894",
+        "experience": "12 years",
+        "fee": "$180"
       },
       {
         "name": "Emma",
         "specialization": "Gynecologist",
-        "image": "https://via.placeholder.com/150/8A2BE2/FFFFFF"
+        "image": "src/assets/doctors/emma.png",
+        "contact": "+1234567895",
+        "experience": "9 years",
+        "fee": "$130"
       },
       {
         "name": "Michael",
         "specialization": "General Practitioner",
-        "image": "https://via.placeholder.com/150/32CD32/FFFFFF"
+        "image": "src/assets/doctors/michael.png",
+        "contact": "+1234567896",
+        "experience": "5 years",
+        "fee": "$80"
       }
     ]
   }
