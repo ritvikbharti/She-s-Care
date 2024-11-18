@@ -1,6 +1,7 @@
 import { MinusIcon, PlusIcon, Trash2Icon } from 'lucide-react'
 import { useState } from "react"
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 import { Button } from '../../components/button1'
 import { Card, CardContent } from "../../components/Card1"
 import { Input } from "../../components/input"
@@ -13,9 +14,17 @@ import {
   SelectValue,
 } from "../../components/select"
 
+import Slideshow from '../../components/Slideshow';
+//offer images
+import o2 from '../../assets/offer02.jpg'
+import o3 from '../../assets/offer03.jpg'
+import o4 from '../../assets/offer04.jpg'
+
 export default function Order() {
   const [quantities, setQuantities] = useState({ product1: 1, product2: 1 })
-
+  const images = [
+    o2, o3, o4
+  ]
   return (
     <div>
       <Navbar/>
@@ -25,21 +34,8 @@ export default function Order() {
       <div className="grid gap-6 lg:grid-cols-[1fr_400px]">
         <div className="space-y-6">
           {/* Promotional Banners */}
-          <div className="grid gap-4 md:grid-cols-2">
-            {/* <Image
-              src="/placeholder.svg?height=120&width=400"
-              alt="15% off promotion"
-              width={400}
-              height={120}
-              className="rounded-lg w-full"
-            />
-            <Image
-              src="/placeholder.svg?height=120&width=400"
-              alt="November savings"
-              width={400}
-              height={120}
-              className="rounded-lg w-full"
-            /> */}
+          <div className="rounded-2xl ">
+            <img src={o2} alt="" className='rounded-xl' />
           </div>
 
           {/* Products */}

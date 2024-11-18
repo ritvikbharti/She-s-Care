@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const Slideshow = ({ images }) => {
+const Slideshow = ({ images, wid, hei }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Clone the images for infinite loop effect
@@ -44,7 +44,7 @@ const Slideshow = ({ images }) => {
             <img
               src={image}
               alt={`Slide ${idx + 1}`}
-              className="w-full h-auto rounded-2xl shadow-lg"
+              className={`w-full h-auto rounded-2xl shadow-lg`}
             />
           </div>
         ))}
