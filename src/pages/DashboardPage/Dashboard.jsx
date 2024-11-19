@@ -6,17 +6,18 @@ export default function Dashboard() {
   const [currentMonth] = useState("January 2021");
 
   return (
-    <div className="min-h-screen w-[65rem] mt-10 ms-[10rem] me-10 text-white ">
+    <div className="min-h-screen w-[64rem] relative top-10 ms-32 text-white ">
       {/* Main Content */}
       <div className="">
         <div className="flex justify-between items-center mb-8">
           <div>
+            {console.log(Date.now())}
             <h1 className="text-2xl font-bold">Dashboard</h1>
             <p className="text-primary_hard text-sm">Thursday, <span className='text-primary-text-100'>28 Jan 2021</span></p>
           </div>
           <div className="flex items-center gap-4">
-            <Button variant="ghost">Appointment History</Button>
-            <Button >+ Add Patient</Button>
+            <Button variant="ghost">Test Report History</Button>
+            <Button >+ Add New Test</Button>
             <Bell className="w-6 h-6 text-slate-400" />
           </div>
         </div>
@@ -25,7 +26,7 @@ export default function Dashboard() {
         <Card className="bg-primary_hard p-6 my-5 rounded-[2rem]">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-bold mb-2">Welcome, Dr. Shabrina</h2>
+              <h2 className="text-2xl font-bold mb-2">Welcome, Nidhi</h2>
               <p className="text-indigo-200">Have a nice day at work</p>
             </div>
             <div className="w-32 h-32 relative">

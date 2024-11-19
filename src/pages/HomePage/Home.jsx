@@ -5,11 +5,9 @@ import Dashboard from '../DashboardPage/Dashboard'
 export default function Home() {
   return (
     <>
-        <Navbar/>
-    <div className='h-screen bg-regal_blue flex justify-end'>
+        <Navbar/>    
             <Dashboard/>
         <ProfileSection/>
-      </div>
     </>
       )
 }

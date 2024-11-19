@@ -9,6 +9,7 @@ import Doctor from './pages/DoctorPage/Doctor'
 import Product from './pages/ProductPage/Product'
 import Order from './pages/OrderPage/Order'
 import Dashboard from './pages/DashboardPage/Dashboard'
+import Chatbot from './pages/chatbot/Chatbot'
 // rfc
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
       <Route path='/product' element={<Product/>}/>
       <Route path='/dashboard' element={<Dashboard/>}/>
       <Route path='/order' element={<Order/>}/>
+      <Route path='/chat' element={<Chatbot/>}/>
     </Routes>  
   ) 
 }

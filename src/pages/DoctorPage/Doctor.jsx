@@ -6,7 +6,7 @@ export default function Doctor() {
   return (
     <>
       <Navbar />
-      <div className="h-full ms-[9rem]   flex flex-col md:flex-row">
+      <div className="h-full ms-[9rem] text-white  flex flex-col md:flex-row">
         {/* Sidebar */}
         {/* <aside className="w-full md:w-1/4 lg:w-1/5 bg-secondary p-4">
           <h2 className="text-white font-bold text-lg md:text-xl">Doctors</h2>
