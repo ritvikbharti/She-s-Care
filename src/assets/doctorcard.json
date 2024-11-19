@@ -47,14 +47,6 @@
         "contact": "+1234567895",
         "experience": "9 years",
         "fee": "$130"
-      },
-      {
-        "name": "Michael",
-        "specialization": "General Practitioner",
-        "image": "src/assets/doctors/michael.png",
-        "contact": "+1234567896",
-        "experience": "5 years",
-        "fee": "$80"
       }
     ],
     "Specialized": [

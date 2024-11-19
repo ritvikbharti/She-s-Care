@@ -1,24 +1,20 @@
-import React from 'react';
+import React from 'react'
 
-const DoctorCard = ({ name, specialization, image, contact, fee, experience }) => {
+const  SpecialistCard = ({name, specialization, image, contact, fee, experience}) =>{
   return (
-    <div className="bg-primary_dark h-[280px] w-[250px] rounded-lg shadow-md p-4 flex flex-col justify-between m-2 text-white">
-      {/* Doctor Image */}
-      <div
-        className="bg-gray-300 h-[150px] w-[100px] rounded-full mb-4 mx-auto"
-        style={{
+    <div className='h-[16rem] w-full bg-primary_dark rounded-lg flex flex-row justify-between items-center m-2 text-white'>
+        <div className='h-[11rem] w-[11rem] bg-regal_blue m-4 rounded-full' style={{
           backgroundImage: `url(${image})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-        }}
-      ></div>
-      <div className=''>
-
-      {/* Doctor Name */}
+        }}></div>
+        <div className='h-[11rem] w-3/4 bg-regal_blue m-1 '>
+        {/* Doctor Name */}
       <h4 className="text-center font-semibold text-lg">{name}</h4>
-
 {/* Specialization */}
 <p className="text-center text-gray-600">{specialization}</p>
+      <div className='float-end mt-4 mr-2'>
+
 
 {/* Additional Info */}
 <div className="mt-2 text-sm ">
@@ -31,10 +27,11 @@ const DoctorCard = ({ name, specialization, image, contact, fee, experience }) =
   <p className="text-gray-700">
     <strong>Contact:</strong> {contact}
   </p>
+</div>
       </div>
-      </div>
+        </div>
     </div>
-  );
-};
+  )
+}
 
-export default DoctorCard;
+export default SpecialistCard

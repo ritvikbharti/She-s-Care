@@ -1,7 +1,9 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import DoctorCard from './components/DoctorCard';
+import SpecialistCard from './components/SpecialistCard';
 import doctorData from '../../assets/doctorcard.json';
+import Card from '../../components/card';
 export default function Doctor() {
   return (
     <>
@@ -14,12 +16,24 @@ export default function Doctor() {
 
         {/* Main Content */}
         <main className="flex-grow p-4 md:p-6 space-y-8">
+        <Card className="bg-primary_hard p-6 my-5 rounded-[2rem]">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-2xl font-bold mb-2">Welcome, Dr. Shabrina</h2>
+              <p className="text-indigo-200">Have a nice day at work</p>
+            </div>
+            <div className="w-32 h-32 relative">
+              <img src="/placeholder.svg" alt="Doctor illustration" className="object-contain" />
+            </div>
+          </div>
+        </Card>
+
           <section>
-          <h2 className="text-lg md:text-xl font-semibold text-white mb-4">Our Doctors</h2>
+          {/* <h2 className="text-lg md:text-xl font-semibold text-white mb-4">Our Doctors</h2> */}
           </section>
           {/* Recommended Section */}
           <section>
-            <h3 className="text-lg md:text-xl font-semibold text-white mb-4">Recommended</h3>
+            <h3 className="text-lg md:text-xl font-semibold text-white mb-4 ml-7 text-[21px]">Our Doctors</h3>
             <div className="space-y-4">
               <div className="bg-dark-900 h-[auto]  rounded-lg shadow-xl flex px-[2rem] py-[2rem] flex-wrap">
               {doctorData.Recommended.map((doctor, index) => (
@@ -36,11 +50,12 @@ export default function Doctor() {
               </div>
             
             </div>
+            
           </section>
 
           {/* Our Specialists Section */}
           <section>
-  <h3 className="text-lg md:text-xl font-semibold text-white mb-4">Our Specialists</h3>
+  {/* <h3 className="text-lg md:text-xl font-semibold text-white mb-4">Our Specialists</h3>
   <div className="space-y-4">
     <div className="bg-dark-900 h-[auto] rounded-lg shadow-md flex px-[2rem] py-[2rem] flex-wrap">
       {doctorData.Specialized.map((doctor, index) => (
@@ -55,7 +70,18 @@ export default function Doctor() {
         />
       ))}
     </div>
-  </div>
+  </div> */}
+   {doctorData.Specialized.map((doctor, index) => (
+                <SpecialistCard
+                  key={index}
+                  name={doctor.name}
+                  specialization={doctor.specialization}
+                  image={doctor.image}
+                  experience={doctor.experience}
+                  fee={doctor.fee}
+                  contact={doctor.contact}
+                />
+              ))}
 </section>
 
 
