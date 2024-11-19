@@ -10,7 +10,7 @@ const ProductCard = ({
   bestSeller,
 }) => {
   return (
-    <div className="max-w-xs bg-white rounded-2xl shadow-md p-4 text-center relative">
+    <div className="max-w-xs bg-white  rounded-2xl shadow-md p-4 text-center relative">
       {/* Best Seller Badge */}
       {bestSeller && (
         <div className="absolute top-4 left-2 bg-primary-green-400 text-white text-xs font-semibold px-2 py-1 rounded-lg">

@@ -22,10 +22,10 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="flex flex-col max-w-md mx-auto bg-dark-900 shadow-lg rounded-2xl h-[22rem]">
-      <header className="bg-primary-blue-600 text-white p-4 text-lg font-bold">
+    <div className="flex flex-col p-2 max-w-md mx-auto bg-dark-900 shadow-lg rounded-2xl  transition-all h-[29rem]">
+      {/* <header className=" text-white mx-auto mt-3 text-lg font-bold  h-9">
         Chatbot
-      </header>
+      </header> */}
       <MessageList messages={messages} />
       <ChatInput onSend={addMessage} />
     </div>
