@@ -15,7 +15,7 @@ const DoctorCard = ({ name, specialization, image, contact, fee, experience }) =
       <div className=''>
 
       {/* Doctor Name */}
-      <h4 className="text-center font-semibold text-lg">{name}</h4>
+      <h4 className="text-center font-bold text-lg">{name}</h4>
 
 {/* Specialization */}
 <p className="text-center text-gray-600">{specialization}</p>

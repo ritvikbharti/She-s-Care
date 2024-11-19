@@ -8,11 +8,11 @@ const  SpecialistCard = ({name, specialization, image, contact, fee, experience}
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}></div>
-        <div className='h-[11rem] w-3/4 bg-regal_blue m-1 '>
+        <div className='h-[11rem] w-3/4 bg-regal_blue m-1  flex flex-col '>
         {/* Doctor Name */}
-      <h4 className="text-center font-semibold text-lg">{name}</h4>
+      <h4 className="font-bold text-lg">{name}</h4>
 {/* Specialization */}
-<p className="text-center text-gray-600">{specialization}</p>
+<p className="text-gray-600">{specialization}</p>
       <div className='float-end mt-4 mr-2'>
 
 

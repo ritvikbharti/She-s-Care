@@ -71,6 +71,7 @@ export default function Doctor() {
       ))}
     </div>
   </div> */}
+  <h2 className="text-lg md:text-xl font-semibold text-white mb-4 ml-7 text-[21px]">Specialized</h2>
    {doctorData.Specialized.map((doctor, index) => (
                 <SpecialistCard
                   key={index}
