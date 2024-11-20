@@ -11,8 +11,11 @@ import Order from './pages/OrderPage/Order'
 import Dashboard from './pages/DashboardPage/Dashboard'
 import Chatbot from './pages/chatbot/Chatbot'
 // rfc
+
 function App() {
   const [count, setCount] = useState(0)
+  const chatkey = import.meta.env.VITE_CHAT_API_KEY;
+  console.log(chatkey);
 
   return (
     <Routes>

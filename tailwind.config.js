@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 export default {
   content: [
     "./index.html",
@@ -53,5 +55,17 @@ export default {
     extend: {
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+    plugin(function({addUtilities}){
+      addUtilities(
+        {
+          '.scrollbar-thumb-hover-green':{
+            '&::-webkit-scrollbar-thumb:hover':{
+              backgroundColor: '#10b981',
+            },
+          },
+        });
+    }),
+  ],
 }

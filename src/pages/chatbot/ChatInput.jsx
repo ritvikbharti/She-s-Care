@@ -24,12 +24,6 @@ const ChatInput = ({ onSend }) => {
         className="flex-1 px-3 py-2  outline-none rounded-2xl focus:outline-none w-64 bg-dark-400"
         placeholder="Type your message..."
       />
-      {/* <button
-        type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
-      >
-        Send
-      </button> */}
         <button type="submit" className="transition text-xl"><IoSend /></button>
     </form>
   );

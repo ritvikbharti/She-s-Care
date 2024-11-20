@@ -10,10 +10,10 @@ const MessageBubble = ({ message }) => {
       } mb-2 items-center`}
     >
       <div
-        className={`max-w-xs p-3 rounded-lg ${
+        className={`max-w-xs p-3 text-sm rounded-2xl ${
           isUser
-            ? "bg-blue-500 text-white self-end"
-            : "bg-gray-200 text-black self-start"
+            ? "bg-primary-blue-900 text-white self-end"
+            : "bg-dark-400 text-black self-start"
         }`}
       >
         {message.text}
