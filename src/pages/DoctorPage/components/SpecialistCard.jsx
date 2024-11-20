@@ -1,37 +1,49 @@
-import React from 'react'
+import React from 'react';
 
-const  SpecialistCard = ({name, specialization, image, contact, fee, experience}) =>{
+const SpecialistCard = ({ name, specialization, image, contact, fee, experience }) => {
   return (
-    <div className='h-[16rem] w-full bg-primary_dark rounded-lg flex flex-row justify-between items-center m-2 text-white'>
-        <div className='h-[11rem] w-[11rem] bg-regal_blue m-4 rounded-full' style={{
+    <div className="h-auto w-full bg-white rounded-2xl flex flex-col md:flex-row justify-between items-center m-2 text-black shadow-md">
+      {/* Profile Image */}
+      <div
+        className="h-[14rem] rounded-2xl w-[14rem] bg-regal_blue m-4  mx-auto md:mx-4"
+        style={{
           backgroundImage: `url(${image})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-        }}></div>
-        <div className='h-[11rem] w-3/4 bg-regal_blue m-1  flex flex-col '>
+        }}
+      ></div>
+
+      {/* Details Section */}
+      <div className="w-full md:w-3/4 px-4 md:ml-[2rem] flex flex-col text-center md:text-left">
         {/* Doctor Name */}
-      <h4 className="font-bold text-lg">{name}</h4>
-{/* Specialization */}
-<p className="text-gray-600">{specialization}</p>
-      <div className='float-end mt-4 mr-2'>
+        <p className="font-bold text-[29px] md:text-[22px] leading-7 text-black tracking-wide mt-[2px]">{name}</p>
 
+        {/* Specialization */}
+        <p className="text-gray-900 text-[16px] font-medium ">{specialization}</p>
 
-{/* Additional Info */}
-<div className="mt-2 text-sm ">
-  <p className="text-gray-700">
-    <strong>Fee:</strong> {fee}
-  </p>
-  <p className="text-gray-700">
-    <strong>Experience:</strong> {experience}
-  </p>
-  <p className="text-gray-700">
-    <strong>Contact:</strong> {contact}
-  </p>
-</div>
-      </div>
+        {/* Description */}
+        <p className="text-gray-500 text-[14px] mt-1 leading-5">
+          Asperiores corrupti praesentium accusantium quidem vel voluptas repellat ad reprehenderit
+          tempore dolorum laboriosam a quaerat minima explicabo, placeat maxime dolorem quae distinctio.
+        </p>
+
+        {/* Additional Info */}
+        <div className="mt-3 text-[14px] leading-6 bg-primary_hard p-4 rounded-lg flex flex-col md:flex-row justify-between items-center mb-1">
+          {/* Fee, Experience, Contact */}
+          <div className="text-center md:text-left mb-3 md:mb-0">
+            <p className="text-gray-900 font-bold text-[21px]">{fee}</p>
+            <p className="text-gray-900 font-semi-bold text-[19px]">{experience}</p>
+            <p className="text-gray-900 font-medium text-[16px]">{contact}</p>
+          </div>
+
+          {/* Consult Button */}
+          <button className=" text-white py-2 px-4 rounded-lg shadow-md bg-primary_dark transition-all hover:bg-primary-gray-100">
+            Consult
+          </button>
         </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default SpecialistCard
+export default SpecialistCard;

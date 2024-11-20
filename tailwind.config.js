@@ -22,7 +22,8 @@ export default {
       
       primary :{
         gray : {
-          100 : '#545a84'
+          100 : '#545a84',
+          900 : 'rgb(17 24 39)'
         },
 
         blue : {
@@ -48,6 +49,11 @@ export default {
         },
         text : {
           100 : '#9094b5'
+        },
+        zinc:{
+          
+          400 : ' ',
+          600 : ' ',
         }
       }
     }, 
