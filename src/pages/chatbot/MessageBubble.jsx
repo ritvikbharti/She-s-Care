@@ -13,7 +13,7 @@ const MessageBubble = ({ message }) => {
         className={`max-w-xs p-3 text-sm rounded-2xl ${
           isUser
             ? "bg-primary-blue-900 text-white self-end"
-            : "bg-dark-400 text-black self-start"
+            : "bg-dark-400 text-white self-start"
         }`}
       >
         {message.text}

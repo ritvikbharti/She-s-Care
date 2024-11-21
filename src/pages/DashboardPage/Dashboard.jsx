@@ -3,11 +3,17 @@ import { useState } from 'react';
 import Button from '../../components/button';
 import Card from '../../components/card';
 import { Link } from 'react-router-dom';
+import { FaDna, FaHeartbeat, FaVial } from 'react-icons/fa';
+import { GiBodyHeight, GiHealthNormal } from 'react-icons/gi';
+import { MdMonitorHeart, MdBloodtype } from 'react-icons/md';
+import { FaPlus, FaAngleDown } from "react-icons/fa6";
+// import { FaDna, FaHeartbeat, MdBloodtype, GiHealthNormal, AiOutlineFileText } from "react-icons/all";
+
 export default function Dashboard() {
   const [currentMonth] = useState("January 2021");
 
   return (
-    <div className="min-h-screen w-[64rem] relative top-10 ms-32 text-white ">
+    <div className="min-h-screen w-[61rem] relative top-10 ms-36 text-white ">
       {/* Main Content */}
       <div className="">
         <div className="flex justify-between items-center mb-8">
@@ -37,35 +43,50 @@ export default function Dashboard() {
         </Card>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-4 gap-10 mb-8">
-          <Card className="bg-secondary_dark p-4 rounded-xl">
-            <div className="flex flex-col">
-              <span className="text-slate-400 mb-2">Patient</span>
-              <span className="text-2xl font-bold">1032</span>
+        <div className='flex justify-between relative top-2 mb-3'>
+          <h2 className='text-xl font-semibold mb-4'>Report</h2>
+          <h2 className='text-sm mb-4 font-thin me-5 flex gap-2 items-center'>This month <FaAngleDown className='font-thin size-4 text-gray-300 '/></h2>
+        </div>
+        <div className="grid ms-1 grid-cols-5 me-1 gap-10 mb-8">
+          <Card className="bg-secondary_dark  flex justify-center">
+            <div className="flex flex-col p-2">
+              <FaDna className='bg-indigo-600 p-4 mb-3 rounded-2xl mx-auto w-16 h-16 '/>
+              <span className="text-slate-400 mb-2 mx-auto">Hormone</span>
+              <span className="text-2xl font-bold mx-auto">18</span>
             </div>
           </Card>
-          <Card className="bg-secondary_dark p-4 rounded-xl">
-            <div className="flex flex-col">
-              <span className="text-slate-400 mb-2">Consultation</span>
-              <span className="text-2xl font-bold">207</span>
+          <Card className="bg-secondary_dark  flex justify-center">
+            <div className="flex flex-col p-2">
+              <FaHeartbeat className='bg-cyan-400 p-4 mb-3 rounded-2xl mx-auto w-16 h-16 '/>
+              <span className="text-slate-400 mb-2 mx-auto">Pelvic US</span>
+              <span className="text-2xl font-bold mx-auto">10</span>
             </div>
           </Card>
-          <Card className="bg-secondary_dark p-4 rounded-xl">
-            <div className="flex flex-col">
-              <span className="text-slate-400 mb-2">Inject</span>
-              <span className="text-2xl font-bold">128</span>
+          <Card className="bg-secondary_dark  flex justify-center">
+            <div className="flex flex-col p-2">
+              <MdBloodtype className='bg-pink-600 p-4 mb-3 rounded-2xl mx-auto w-16 h-16 '/>
+              <span className="text-slate-400 mb-2 mx-auto">Sugar</span>
+              <span className="text-2xl font-bold mx-auto">80</span>
             </div>
           </Card>
-          <Card className="bg-secondary_dark p-4 rounded-xl">
-            <div className="flex flex-col">
-              <span className="text-slate-400 mb-2">Surgery</span>
-              <span className="text-2xl font-bold">48</span>
+          <Card className="bg-secondary_dark  flex justify-center">
+            <div className="flex flex-col p-2">
+              <GiHealthNormal className='bg-blue-600 p-4 mb-3 rounded-2xl mx-auto w-16 h-16 '/>
+              <span className="text-slate-400 mb-2 mx-auto">Throid</span>
+              <span className="text-2xl font-bold mx-auto">3</span>
+            </div>
+          </Card>
+          
+          
+          <Card className=" border-dashed border-2 border-primary_hard p-4 rounded-2xl">
+            <div className=" flex justify-center items-center h-full">
+            <FaPlus className='size-9 text-primary_hard'/>
             </div>
           </Card>
         </div>
 
         {/* Calendar Section */}
-        <Card className="bg-secondary_dark p-6 rounded-xl mb-8">
+        <Card className="bg-secondary_dark p-6 rounded-2xl relative top-4 mb-8 h-[25rem]">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-xl font-semibold">{currentMonth}</h3>
             <div className="flex gap-2">

@@ -1,6 +1,8 @@
+// tailwind.config.js
 const plugin = require('tailwindcss/plugin');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
-export default {
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -8,6 +10,13 @@ export default {
 
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            fontFamily: ['Poppins', ...defaultTheme.fontFamily.sans],
+          },
+        },
+      },
       colors: {
         primary_hard: '#5a5fed',
         primary_dark: '#202445',
@@ -20,7 +29,6 @@ export default {
           900: '#272d4d',
         },
         white: '#fff',
-
         primary: {
           gray: {
             100: '#545a84',
@@ -57,6 +65,7 @@ export default {
 
   plugins: [
     require('tailwind-scrollbar'),
+    require('@tailwindcss/typography'),
     plugin(function ({ addUtilities }) {
       addUtilities({
         '.scrollbar-thumb-hover-green': {
