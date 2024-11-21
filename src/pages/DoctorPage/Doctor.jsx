@@ -23,7 +23,6 @@ export default function Doctor() {
 
   return (
     <>
-      <Navbar />
       <div className="h-full ms-[9rem] flex flex-col lg:flex-row">
         {/* Main Content */}
         <main className="flex-grow p-4 md:p-6 space-y-8">

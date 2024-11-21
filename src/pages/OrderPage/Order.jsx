@@ -22,6 +22,7 @@ import o4 from '../../assets/offer04.jpg'
 
 import p1 from '../../assets/charak01.jpeg'
 import p2 from '../../assets/asthiposhak.png'
+import { Link } from 'react-router-dom';
 
 
 export default function Order() {
@@ -31,7 +32,6 @@ export default function Order() {
   ]
   return (
     <div>
-      <Navbar/>
     <div className="container mx-44   text-white bg-dark-600 relative top-10 w-[80rem] p-10 rounded-3xl">
       <h1 className="text-2xl font-bold mb-6">Order Summary</h1>
       
@@ -48,7 +48,7 @@ export default function Order() {
             <h2 className="text-sm text-muted-foreground">PRODUCTS</h2>
             
             <Card>
-              <CardContent className="p-4 flex gap-4 rounded-xl bg-dark-400">
+              <CardContent className="p-4 flex gap-4 rounded-2xl bg-dark-400">
                <img src={p1} alt="" className='w-32 rounded-lg'/>
                 <div className="flex-1 space-y-1 ">
                   <h3 className="font-medium">CETAPHIL MOISTURISING Cream 250gm</h3>
@@ -79,7 +79,7 @@ export default function Order() {
             </Card>
 
             <Card>
-              <CardContent className="p-4 flex rounded-xl gap-4 bg-dark-400">
+              <CardContent className="p-4 flex rounded-2xl gap-4 bg-dark-400">
               <img src={p2} alt="" className='w-32 rounded-lg'/>
                 <div className="flex-1 space-y-1">
                   <h3 className="font-medium">Dr. Odin Blood Glucose Test Strips - (GDH-FAD) (AC-307) (Pack of 2 x 25's)</h3>
@@ -110,9 +110,11 @@ export default function Order() {
               </CardContent>
             </Card>
 
-            <Button className="w-full bg-primary-blue-600">
+            <Link to={"/product"}>
+            <Button className="w-full bg-primary-blue-600 top-2 relative rounded-xl">
               ADD MORE ITEMS
             </Button>
+            </Link>
           </div>
         </div>
 

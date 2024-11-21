@@ -1,32 +1,69 @@
 import React from "react";
-import { FaHome, FaCalendarAlt, FaEnvelope, FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
-
+import {
+  FaHome,
+  FaCalendarAlt,
+  FaFileMedicalAlt,
+  FaFileMedical,
+  FaUser,
+  FaCog,
+  FaSignOutAlt,
+} from "react-icons/fa";
+import { FaUserDoctor } from "react-icons/fa6";
+import { GrDocumentTest } from "react-icons/gr";
+import { MdAddShoppingCart } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
-    <div className=" fixed bg-primary_hard rounded-3xl w-20  h-[40rem] ms-6 mt-7 flex flex-col items-center py-8">
+    <nav className=" fixed bg-primary_hard rounded-3xl w-20  h-[40rem] ms-6 mt-7 flex flex-col items-center py-8">
       <ul className="flex flex-col space-y-8 text-white text-2xl">
-        <button className="hover:text-indigo-400">
-          <FaHome />
-        </button>
-        <button className="hover:text-indigo-400">
-          <FaCalendarAlt />
-        </button>
-        <button className="hover:text-indigo-400">
-          <FaEnvelope />
-        </button>
-        <button className="hover:text-indigo-400">
+        <li>
+          <NavLink 
+          to="/"
+          className={({isActive})=>
+            `${isActive ? "bg-primary_gray": ""}`}
+          >
+            <FaHome />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+          to="/test"
+          className={({isActive})=>{
+            `${isActive ? "bg-primary_gray": ""}`
+          }}
+          >
+            <FaFileMedical />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+          to="/doctor">
+            <FaUserDoctor />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+          to="/product"
+          >
+            <MdAddShoppingCart />
+          </NavLink>
+        </li>
+
+        {/* <li>
+          <NavLink>
           <FaUser />
-        </button>
-        <button className="hover:text-indigo-400">
-          <FaCog />
-        </button>
+          </NavLink>
+        </li> */}
       </ul>
       <div className="mt-auto text-white text-2xl">
         <button className="hover:text-indigo-400">
           <FaSignOutAlt />
         </button>
       </div>
-    </div>
+    </nav>
   );
 };
 

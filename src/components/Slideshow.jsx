@@ -12,7 +12,7 @@ const Slideshow = ({ images, wid, hei }) => {
       setCurrentIndex((prevIndex) =>
         prevIndex === images.length ? 1 : prevIndex + 1
       );
-    }, 2000); // Move every 1 second
+    }, 1500); // Move every 1 second
 
     return () => clearInterval(interval);
   }, [images.length]);

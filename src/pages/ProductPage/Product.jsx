@@ -29,14 +29,13 @@ import o5 from "../../assets/offer05.jpg"
 import o6 from "../../assets/offer06.jpg"
 import o7 from "../../assets/offer07.jpg"
 import o8 from "../../assets/offer08.jpg"
+import { Link } from "react-router-dom";
 
 export default function Product() {
   const imagesUrl = [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10];
   const offerUrl = [o1, o2,o3,o4,o5,o6,o7,o8];
   return (
     <div>
-      {/* Navbar */}
-      <Navbar />
 
       <div className="me-10 ms-[9rem]">
         {/* Top bar */}
@@ -45,13 +44,13 @@ export default function Product() {
             <input
               type="text"
               placeholder="Search for medicine, products, etc."
-              className="bg-white rounded-2xl h-10 w-[30rem] p-3"
+              className="bg-white rounded-2xl h-10 w-[30rem] p-3 focus:outline-none"
             />
             <FiSearch className="text-primary_hard float-end size-7 my-auto" />
           </div>
           <div className="text-white gap-4 flex">
             <FaUser className="size-6" />
-            <FaCartShopping className="size-6" />
+            <Link to={"/order"}><FaCartShopping className="size-6" /></Link> 
           </div>
         </div>
 

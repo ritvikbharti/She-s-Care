@@ -2,6 +2,7 @@ import { Bell, Calendar, Home, Mail, Settings, Users } from 'lucide-react';
 import { useState } from 'react';
 import Button from '../../components/button';
 import Card from '../../components/card';
+import { Link } from 'react-router-dom';
 export default function Dashboard() {
   const [currentMonth] = useState("January 2021");
 
@@ -17,7 +18,7 @@ export default function Dashboard() {
           </div>
           <div className="flex items-center gap-4">
             <Button variant="ghost">Test Report History</Button>
-            <Button >+ Add New Test</Button>
+            <Link to={"/test"}><Button >+ Add New Test</Button></Link>
             <Bell className="w-6 h-6 text-slate-400" />
           </div>
         </div>
