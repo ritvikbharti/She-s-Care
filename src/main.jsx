@@ -8,7 +8,8 @@ import Home from './pages/HomePage/Home.jsx';
 import Product from './pages/ProductPage/Product.jsx';
 import Doctor from './pages/DoctorPage/Doctor.jsx';
 import Test from './pages/TestPage/Test.jsx';
-import Order from './pages/OrderPage/Order.jsx'
+import Order from './pages/OrderPage/Order.jsx';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
       { path: 'product', element: <Product /> },
       { path: 'doctor', element: <Doctor /> },
       { path: 'test', element: <Test /> },
-      {path: 'order', element: <Order/>}
+      {path: 'order', element: <Order/>},
+      {path: 'register',element:<RegistrationPage/>}
     ],
   },
 ]);
