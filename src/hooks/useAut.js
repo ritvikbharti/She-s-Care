@@ -4,7 +4,7 @@ import { auth, firestore } from "../firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import useAuthStore from "../store/authStore";
 
-const useLogin = () => {
+const useAuth = () => {
 	const showToast = useShowToast();
 	const [signInWithEmailAndPassword, , loading, error] = useSignInWithEmailAndPassword(auth);
 	const loginUser = useAuthStore((state) => state.login);
@@ -30,4 +30,4 @@ const useLogin = () => {
 	return { loading, error, login };
 };
 
-export default useLogin;
+export default useAuth;
