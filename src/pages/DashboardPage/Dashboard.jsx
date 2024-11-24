@@ -7,6 +7,7 @@ import { FaDna, FaHeartbeat, FaVial } from 'react-icons/fa';
 import { GiBodyHeight, GiHealthNormal } from 'react-icons/gi';
 import { MdMonitorHeart, MdBloodtype } from 'react-icons/md';
 import { FaPlus, FaAngleDown } from "react-icons/fa6";
+import girlImg from "../../assets/girl.png"
 // import { FaDna, FaHeartbeat, MdBloodtype, GiHealthNormal, AiOutlineFileText } from "react-icons/all";
 
 export default function Dashboard() {
@@ -29,17 +30,19 @@ export default function Dashboard() {
         </div>
 
         {/* Welcome Card */}
-        <Card className="bg-primary_hard p-6 my-5 rounded-[2rem]">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-2xl font-bold mb-2">Welcome, Nidhi</h2>
-              <p className="text-indigo-200">Have a nice day at work</p>
+        <div>
+            <div className="absolute top-[68px] left-0">
+              <img src={girlImg} alt="Doctor illustration" className="object-contain h-[16rem]" />
             </div>
-            <div className="w-32 h-32 relative">
-              <img src="/placeholder.svg" alt="Doctor illustration" className="object-contain" />
+        <Card className="bg-primary_hard h-40 p-6 mt-28  my-5 rounded-[2rem]">
+          <div className="flex items-center mt-5 me-10 justify-end">
+            <div className=''>
+              <h2 className="text-4xl  mb-3">Welcome, <span className='font-bold'>Nidhi Kumari</span></h2>
+              <p className="text-indigo-200 text-xl   flex justify-end ">Have a nice day at work</p>
             </div>
           </div>
         </Card>
+        </div>
 
         {/* Stats Grid */}
         <div className='flex justify-between relative top-2 mb-3'>
