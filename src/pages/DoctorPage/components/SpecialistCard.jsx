@@ -23,7 +23,7 @@ const SpecialistCard = ({ name, specialization, image, contact, fee, experience 
 
         {/* Description */}
         <p className="text-gray-500 text-[14px] mt-1 leading-5">
-ium accusantium quidem vel voluptas repellat ad reprehenderit
+ium accusantium quidem vel v repellat ad reprehenderit
           tempore dolorum laboriosam a quaerat minima explicabo, placeat maxime dolorem quae distinctio.
         </p>
 
