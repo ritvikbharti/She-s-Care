@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./css/RegistrationPage.css"; // Move inline styles to a separate CSS file
 import google from '../../assets/logo/google.png'
-import carousel1 from "../../assets/carousel/carousel1.png"
-import carousel2 from "../../assets/carousel/carousel2.png"
-import carousel3 from "../../assets/carousel/carousel3.png"
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
-const RegistrationPage = () => {
+const RegistrationPage = ({onLogin}) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -17,23 +13,8 @@ const RegistrationPage = () => {
     termsAccepted: false,
   });
 
-  const slides = [
-    { id: 1, text: "", image: carousel1 },
-    { id: 2, text: "", image: carousel2},
-    { id: 3, text: "", image:  carousel3},
-  ];
-
-  const carouselSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
-  };
-
+  
+  const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -48,29 +29,18 @@ const RegistrationPage = () => {
       alert("Please accept the terms and conditions!");
       return;
     }
+    onLogin();
+    toast.success('Login Successful!');
     console.log("Form submitted:", formData);
+    navigate('/');
   };
 
   return (
     <div className="flex h-screen bg-gray-900 text-white">
       {/* Left Section - Carousel */}
-      <div className="w-1/2 flex flex-col items-center justify-center bg-gradient-to-b  from-purple-900 to-gray-900 p-10">
+      <div className="w-1/2 flex flex-col items-center justify-center bg-gradient-to-b  from-indigo-900 to-gray-900 p-10">
         <div className="text-4xl font-extrabold mb-3 text-white text-[59px] font-serif">Fairy Mate</div>
-        {/* <div className="w-3/4 h-[500px]"> Increased carousel height */}
-          {/* <Slider {...carouselSettings}>
-            {slides.map((slide) => (
-              <div key={slide.id} className="flex flex-col items-center h-[29rem] ">
-                <img
-                  src={slide.image}
-                  alt={`Slide ${slide.id}`}
-                  className="rounded-lg shadow-lg w-full h-full object-cover "
-                />
-                <h2 className="text-white text-lg font-semibold mt-4">{slide.text}</h2>
-              </div>
-            ))}
-          </Slider> */}
 
-        {/* </div> */}
         <p className="text-gray-600 text-[19px] ml-[5rem] font-serif">Consult to our Doctors Seemlessly.</p>
       </div>
 
@@ -83,7 +53,7 @@ const RegistrationPage = () => {
           <h2 className="text-3xl font-bold mb-2">Create an account</h2>
           <p>
             Already have an account?{" "}
-            <a href="/login" className="text-purple-400 underline">
+            <a href="/login" className="text-indigo-400 underline">
               Log in
             </a>
           </p>
@@ -139,14 +109,15 @@ const RegistrationPage = () => {
             />
             <label htmlFor="termsAccepted">
               I agree to the{" "}
-              <a href="/terms" className="text-purple-400 underline">
+              <a href="/terms" className="text-indigo-400 underline">
                 Terms & Conditions
               </a>
             </label>
           </div>
           <button
             type="submit"
-            className="bg-purple-600 w-full py-3 rounded-md text-white hover:bg-purple-500"
+            className="bg-indigo-600 w-full py-3 rounded-md text-white hover:bg-indigo-500"
+            
           >
             Create account
           </button>

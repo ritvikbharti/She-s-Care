@@ -18,7 +18,6 @@ export default function Dashboard() {
       <div className="">
         <div className="flex justify-between items-center mb-8">
           <div>
-            {console.log(Date.now())}
             <h1 className="text-2xl font-bold">Dashboard</h1>
             <p className="text-primary_hard text-sm">Thursday, <span className='text-primary-text-100'>28 Jan 2021</span></p>
           </div>
