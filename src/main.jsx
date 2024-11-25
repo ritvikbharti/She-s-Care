@@ -12,12 +12,17 @@ import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import { ToastContainer } from 'react-toastify';
 import UseLogin from './hooks/UseLogin.jsx'; // Correct case
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage.jsx';
+<<<<<<< HEAD
 import AuthLayout from './Layouts/AuthLayout.jsx';
 import { GoogleOAuthProvider } from '@react-oauth/google'; // Import GoogleOAuthProvider
 
+=======
+import { Provider } from 'react-redux';
+import {store} from "./app/store"
+>>>>>>> dc84de9bf9101af7df17482e1d916385a1feaa08
 
 function AppRouter() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulating authentication status.
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // Simulating authentication status.
 
   useEffect(() => {
     const storedLoginStatus = localStorage.getItem('isLoggedIn');
@@ -78,8 +83,14 @@ const clientId = '348743011453-ueeoim0g3ml4qicgqrqo1dqqnsnl8bto.apps.googleuserc
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+<<<<<<< HEAD
     <GoogleOAuthProvider clientId={clientId}>
       <AppRouter />
     </GoogleOAuthProvider>
+=======
+    <Provider store={store}>
+    <AppRouter />
+    </Provider>
+>>>>>>> dc84de9bf9101af7df17482e1d916385a1feaa08
   </StrictMode>
 );

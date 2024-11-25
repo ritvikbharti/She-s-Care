@@ -6,6 +6,9 @@ import { Button } from '../../components/button1'
 import { Card, CardContent } from "../../components/Card1"
 import { Input } from "../../components/input"
 import Navbar from '../../components/Navbar'
+
+import { useSelector } from 'react-redux';
+
 import {
   Select,
   SelectContent,
@@ -30,6 +33,9 @@ export default function Order() {
   const images = [
     o2, o3, o4
   ]
+
+  const items = useSelector(state => state);
+  console.log('Items2: ', items);
   return (
     <div>
     <div className="container mx-44   text-white bg-dark-600 relative top-10 w-[80rem] p-10 rounded-3xl">

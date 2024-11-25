@@ -1,5 +1,6 @@
 import React from "react";
-
+import { addItem } from "../../app/slices/cartSlice";
+import { useDispatch } from "react-redux";
 const ProductCard = ({
   name,
   description,
@@ -9,6 +10,8 @@ const ProductCard = ({
   imageUrl,
   bestSeller,
 }) => {
+
+  const dispatch = useDispatch();
   return (
     <div className="max-w-xs bg-white  rounded-2xl shadow-md p-4 text-center relative">
       {/* Best Seller Badge */}
@@ -27,7 +30,10 @@ const ProductCard = ({
           <span className="text-sm line-through ml-2">₹{originalPrice}</span>
           <span className="text-sm text-primary-green-400 ml-2">{discount}</span>
         </div>
-        <button className="mt-4 bg-primary-blue-900 w-full text-white font-semibold py-2 px-4 rounded-xl hover:bg-blue-700">
+        <button 
+        className="mt-4 bg-primary-blue-900 w-full text-white font-semibold py-2 px-4 rounded-xl hover:bg-blue-700"
+        onClick={(e)=> dispatch(addItem({imageUrl: imageUrl,name: name, description: description, price: price, originalPrice: originalPrice, discount: discount})) }
+        >
           ADD
         </button>
       </div>

@@ -7,7 +7,7 @@
       "originalPrice": 280,
       "bestSeller" : true,
       "discount": "15% off",
-      "imageUrl": "/assets/asthiposhak.png"
+      "imageUrl": "https://res.cloudinary.com/dvsvn3ykc/image/upload/v1732476021/ws32hc1hhe9ysiikjg7t.webp"
     },
     {
       "id": 2,
@@ -17,7 +17,7 @@
       "originalPrice": 150,
       "bestSeller" : false,
       "discount": "10% off",
-      "imageUrl": "/assets/evecare.png"
+      "imageUrl": "https://res.cloudinary.com/dvsvn3ykc/image/upload/v1732476022/rwqfwwcnmvzen1rycq1s.webp"
     },
     {
       "id": 3,
@@ -27,7 +27,7 @@
       "originalPrice": 330,
       "bestSeller" : false,
       "discount": "11% off",
-      "imageUrl": "/assets/womens-wellbeing.png"
+      "imageUrl": "https://res.cloudinary.com/dvsvn3ykc/image/upload/v1732476022/dc7q8nkzrvxroznnoqj7.webp"
     },
     {
       "id": 4,
@@ -37,17 +37,17 @@
       "originalPrice": 350,
       "bestSeller" : true,
       "discount": "9% off",
-      "imageUrl": "/assets/regunova.png"
+      "imageUrl": "https://res.cloudinary.com/dvsvn3ykc/image/upload/v1732476022/zphnamzgpdpma9aqdg2b.webp"
     },
     {
       "id": 5,
-      "name": "Charak Regunova Plus Tablet",
-      "description": "Natural formulation for hormonal balance and improved reproductive health.",
+      "name": "Ayush Kalp Women Wellness care Herbal Tea",
+      "description": "Ayush Kalp Women Wellness Tea is beneficial for women with irregular",
       "price": 320,
       "originalPrice": 350,
       "bestSeller" : false,
       "discount": "9% off",
-      "imageUrl": "/assets/regunova.png"
+      "imageUrl": "https://res.cloudinary.com/dvsvn3ykc/image/upload/v1732476617/ayu0362_1_z4t8rn.webp"
     },
     {
       "id": 6,
@@ -57,7 +57,7 @@
       "originalPrice": 350,
       "bestSeller" : false,
       "discount": "9% off",
-      "imageUrl": "/assets/regunova.png"
+      "imageUrl": "https://res.cloudinary.com/dvsvn3ykc/image/upload/v1732476022/ayvgwsitmuyyii27ftag.webp"
     },
     {
       "id": 7,
@@ -67,7 +67,7 @@
       "originalPrice": 350,
       "bestSeller" : true,
       "discount": "9% off",
-      "imageUrl": "/assets/regunova.png"
+      "imageUrl": "https://res.cloudinary.com/dvsvn3ykc/image/upload/v1732476022/rwqfwwcnmvzen1rycq1s.webp"
     },
     {
       "id": 8,
@@ -77,7 +77,7 @@
       "originalPrice": 350,
       "bestSeller" : false,
       "discount": "9% off",
-      "imageUrl": "/assets/regunova.png"
+      "imageUrl": "https://res.cloudinary.com/dvsvn3ykc/image/upload/v1732476022/o63tpxifhh073h1so0fv.webp"
     }
   ]
   
