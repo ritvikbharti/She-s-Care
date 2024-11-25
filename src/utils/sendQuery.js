@@ -3,7 +3,7 @@ const apikey = import.meta.env.VITE_CHAT_API_KEY;
 export const sendQuery = async(userQuery)=>{
     const options = {
     method: 'POST',
-    url: 'https://api.on-demand.io/chat/v1/sessions/673ced87596df883858e362b/query',
+    url: 'https://api.on-demand.io/chat/v1/sessions/674468213ccc9c388cc850b1/query',
     headers: {
         accept: 'application/json',
         'content-type': 'application/json',
