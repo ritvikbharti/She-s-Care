@@ -16,6 +16,7 @@ export const sendQuery = async(userQuery)=>{
     }
     };
     try{
+     
         const res = await axios.request(options);
         console.log(res.data);
         console.log(apikey);
