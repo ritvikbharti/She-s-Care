@@ -8,11 +8,16 @@ import Product from './pages/ProductPage/Product.jsx';
 import Doctor from './pages/DoctorPage/Doctor.jsx';
 import Test from './pages/TestPage/Test.jsx';
 import Order from './pages/OrderPage/Order.jsx';
+import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import { ToastContainer } from 'react-toastify';
 import UseLogin from './hooks/UseLogin.jsx'; // Correct case
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage.jsx';
+import AuthLayout from './Layouts/AuthLayout.jsx';
+import { GoogleOAuthProvider } from '@react-oauth/google'; // Import GoogleOAuthProvider
+
 import { Provider } from 'react-redux';
 import {store} from "./app/store"
+
 
 function AppRouter() {
   const [isLoggedIn, setIsLoggedIn] = useState(true); // Simulating authentication status.
@@ -20,7 +25,7 @@ function AppRouter() {
   useEffect(() => {
     const storedLoginStatus = localStorage.getItem('isLoggedIn');
     if (storedLoginStatus === 'true') {
-      console.log("entered")
+      console.log('entered');
       setIsLoggedIn(true);
     }
   }, []);
@@ -29,6 +34,7 @@ function AppRouter() {
     setIsLoggedIn(true);
     localStorage.setItem('isLoggedIn', 'true');
   };
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -38,15 +44,31 @@ function AppRouter() {
         </UseLogin>
       ),
       children: [
-        { path: '', element: <Home/> },
+        { path: '', element: <Home /> },
         { path: 'product', element: <Product /> },
         { path: 'doctor', element: <Doctor /> },
         { path: 'test', element: <Test /> },
         { path: 'order', element: <Order /> },
       ],
     },
-    { path: '/login', element: <RegistrationPage onLogin = {handleLogin} /> },
+    {
+      path: '/login',
+      element: (
+        <AuthLayout>
+          <LoginPage />
+        </AuthLayout>
+      ),
+    },
+    {
+      path: '/register',
+      element: (
+        <AuthLayout>
+          <RegistrationPage onLogin={handleLogin} />
+        </AuthLayout>
+      ),
+    },
   ]);
+
   return (
     <>
       <ToastContainer />
@@ -55,10 +77,14 @@ function AppRouter() {
   );
 }
 
+const clientId = '348743011453-ueeoim0g3ml4qicgqrqo1dqqnsnl8bto.apps.googleusercontent.com'; // Replace with your client ID
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <GoogleOAuthProvider clientId={clientId}>
     <Provider store={store}>
     <AppRouter />
     </Provider>
+    </GoogleOAuthProvider>
   </StrictMode>
 );
