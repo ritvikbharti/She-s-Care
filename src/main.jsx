@@ -55,7 +55,7 @@ function AppRouter() {
       path: '/login',
       element: (
         <AuthLayout>
-          <LoginPage />
+          <LoginPage onLogin={handleLogin} />
         </AuthLayout>
       ),
     },
