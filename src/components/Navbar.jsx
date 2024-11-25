@@ -59,9 +59,12 @@ const Navbar = () => {
         </li> */}
       </ul>
       <div className="mt-auto text-white text-2xl">
-        <button className="hover:text-indigo-400">
+        <NavLink
+          to="/login"
+          className="hover:text-indigo-400"
+          >
           <FaSignOutAlt />
-        </button>
+          </NavLink>
       </div>
     </nav>
   );

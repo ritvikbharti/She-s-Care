@@ -10,9 +10,8 @@ import { FaPlus, FaAngleDown } from "react-icons/fa6";
 import girlImg from "../../assets/girl.png"
 // import { FaDna, FaHeartbeat, MdBloodtype, GiHealthNormal, AiOutlineFileText } from "react-icons/all";
 
-export default function Dashboard() {
+export default function   Dashboard() {
   const [currentMonth] = useState("January 2021");
-
   return (
     <div className="min-h-screen w-[61rem] relative top-10 ms-36 text-white ">
       {/* Main Content */}

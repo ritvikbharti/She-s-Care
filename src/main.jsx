@@ -20,7 +20,7 @@ import {store} from "./app/store"
 
 
 function AppRouter() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Simulating authentication status.
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulating authentication status.
 
   useEffect(() => {
     const storedLoginStatus = localStorage.getItem('isLoggedIn');
@@ -55,7 +55,7 @@ function AppRouter() {
       path: '/login',
       element: (
         <AuthLayout>
-          <LoginPage />
+          <LoginPage onLogin={handleLogin} />
         </AuthLayout>
       ),
     },
