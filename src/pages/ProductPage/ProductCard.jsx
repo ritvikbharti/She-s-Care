@@ -1,5 +1,6 @@
 import React from "react";
 import { addItem } from "../../app/slices/cartSlice";
+import { toast, ToastContainer } from "react-toastify";
 import { useDispatch } from "react-redux";
 const ProductCard = ({
   name,
@@ -10,7 +11,18 @@ const ProductCard = ({
   imageUrl,
   bestSeller,
 }) => {
-
+  const notifySubmit = ()=>{
+    toast("Items Added To Cart");
+}
+const contextClass = {
+    success: "bg-blue-600",
+    error: "bg-red-600",
+    info: "bg-gray-600",
+    warning: "bg-orange-400",
+    default: "bg-indigo-500",
+    dark: "bg-white-600 font-gray-300",
+  };
+  
   const dispatch = useDispatch();
   return (
     <div className="max-w-xs bg-white  rounded-2xl shadow-md p-4 text-center relative">
@@ -31,11 +43,32 @@ const ProductCard = ({
           <span className="text-sm text-primary-green-400 ml-2">{discount}</span>
         </div>
         <button 
-        className="mt-4 bg-primary-blue-900 w-full text-white font-semibold py-2 px-4 rounded-xl hover:bg-blue-700"
-        onClick={(e)=> dispatch(addItem({imageUrl: imageUrl,name: name, description: description, price: price, originalPrice: originalPrice, discount: discount})) }
-        >
-          ADD
-        </button>
+  className="mt-4 bg-primary-blue-900 w-full text-white font-semibold py-2 px-4 rounded-xl hover:bg-blue-700"
+  onClick={(e) => {
+    dispatch(addItem({
+      imageUrl: imageUrl,
+      name: name,
+      description: description,
+      price: price,
+      originalPrice: originalPrice,
+      discount: discount
+    }));
+    notifySubmit();
+  }}
+>
+  ADD
+</button>
+
+        <ToastContainer
+                toastClassName={(context) =>
+                contextClass[context?.type || "default"] +
+                " relative flex p-1 min-h-10 rounded-xl justify-between overflow-hidden font-semibold cursor-pointer m-2"
+                }
+                bodyClassName={() => "font-white  block p-3"}
+                position="bottom-right"
+                hideProgressBar
+                autoClose={3000}
+            />
       </div>
     </div>
   );
