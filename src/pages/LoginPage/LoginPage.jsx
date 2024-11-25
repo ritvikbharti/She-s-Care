@@ -38,7 +38,6 @@ const LoginPage = ({ onLogin }) => {
   const googleLogin = useGoogleLogin({
     onSuccess: (response) => {
       console.log("Google Login Success:", response);
-      // Use `response` to fetch user details or tokens from Google's API
       toast.success("Google Login Successful!");
       navigate("/");
     },

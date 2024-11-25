@@ -14,7 +14,8 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
-    <nav className=" fixed bg-primary_hard rounded-3xl w-20  h-[40rem] ms-6 mt-7 flex flex-col items-center py-8">
+    <div className="fixed py-7 items-center mx-6 h-full ">
+    <nav className="  bg-primary_hard rounded-3xl w-20 h-full  flex flex-col items-center py-8">
       <ul className="flex flex-col space-y-8 text-white text-2xl">
         <li>
           <NavLink 
@@ -67,6 +68,7 @@ const Navbar = () => {
           </NavLink>
       </div>
     </nav>
+    </div>
   );
 };
 

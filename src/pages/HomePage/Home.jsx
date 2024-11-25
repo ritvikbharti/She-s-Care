@@ -10,8 +10,9 @@ export default function Home() {
 
   return (
     <>
+    <div className="flex justify-left ms-32 ">
       <Dashboard />
-
+    </div>
       <ProfileSection />
     </>
   );

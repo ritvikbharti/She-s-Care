@@ -12,7 +12,8 @@ import Chatbot from "../pages/chatbot/Chatbot";
 const ProfileSection = () => {
   const [query, setQuery] = useState("");
   return (
-    <section className="flex flex-col bg-primary_dark fixed top-0 right-0 h-full w-[22rem] text-white">
+    <div className="fixed top-0 right-0 h-full w-[22em]  bg-primary_dark">
+    <section className="flex flex-col items-stretch  text-white">
       <div className="flex justify-between mx-5 my-2">
         <h2 className="font-semibold">My Profile</h2>
         <span className="text-xl">
@@ -51,6 +52,7 @@ const ProfileSection = () => {
       </div> */}
         <Chatbot/>
     </section>
+    </div>
   );
 };
 

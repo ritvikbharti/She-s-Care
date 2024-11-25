@@ -13,7 +13,7 @@ import girlImg from "../../assets/girl.png"
 export default function   Dashboard() {
   const [currentMonth] = useState("January 2021");
   return (
-    <div className="min-h-screen w-[61rem] relative top-10 ms-36 text-white ">
+    <div className="w-full me-[22.1rem] p-10 relative top-10  text-white ">
       {/* Main Content */}
       <div className="">
         <div className="flex justify-between items-center mb-8">
