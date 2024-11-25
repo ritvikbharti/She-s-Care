@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Navbar from '../../components/Navbar'
-import Quiz from './quiz'
+import Quiz from './Quiz'
 import { FaChevronDown } from "react-icons/fa6";
 
 export default function Test() {
