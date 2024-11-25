@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useGoogleLogin } from '@react-oauth/google'; // Import Google login hook
 import google from "../../assets/logo/google.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -28,7 +28,7 @@ const LoginPage = ({ onLogin }) => {
       toast.error("Please fill in all fields.");
       return;
     }
-    onLogin(); // Notify parent component on successful login
+    // onLogin(); // Notify parent component on successful login
     toast.success("Login Successful!");
     console.log("Login data:", formData);
     navigate("/"); // Redirect to home page
@@ -62,15 +62,14 @@ const LoginPage = ({ onLogin }) => {
       {/* Right Section - Login Form */}
       <div className="w-1/2 flex items-center justify-center">
         <form
-          onSubmit={handleSubmit}
           className="bg-gray-800 p-10 rounded-lg shadow-md w-3/4 space-y-5"
         >
           <h2 className="text-3xl font-bold mb-2">Log in to your account</h2>
           <p>
             Don’t have an account?{" "}
-            <a href="/register" className="text-indigo-400 underline">
-              Sign up
-            </a>
+           <Link to={"/register"} className="text-indigo-400 underline">
+           Sign up
+           </Link>
           </p>
 
           <input
@@ -96,6 +95,7 @@ const LoginPage = ({ onLogin }) => {
 
           <button
             type="submit"
+            onClick={handleSubmit}
             className="bg-indigo-600 w-full py-3 rounded-md text-white hover:bg-indigo-500"
           >
             Log In

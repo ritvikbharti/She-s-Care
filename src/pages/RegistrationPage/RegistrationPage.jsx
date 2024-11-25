@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useGoogleLogin } from '@react-oauth/google'; // Import Google login hook
 import google from "../../assets/logo/google.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -70,9 +70,9 @@ const RegistrationPage = ({ onLogin }) => {
           <h2 className="text-3xl font-bold mb-2">Create an account</h2>
           <p>
             Already have an account?{" "}
-            <a href="/login" className="text-indigo-400 underline">
-              Log in
-            </a>
+            <Link to={"/login"} className="text-indigo-400 underline">
+            Log in
+            </Link>
           </p>
 
           <div className="flex space-x-3">
