@@ -12,14 +12,12 @@ import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import { ToastContainer } from 'react-toastify';
 import UseLogin from './hooks/UseLogin.jsx'; // Correct case
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage.jsx';
-<<<<<<< HEAD
 import AuthLayout from './Layouts/AuthLayout.jsx';
 import { GoogleOAuthProvider } from '@react-oauth/google'; // Import GoogleOAuthProvider
 
-=======
 import { Provider } from 'react-redux';
 import {store} from "./app/store"
->>>>>>> dc84de9bf9101af7df17482e1d916385a1feaa08
+
 
 function AppRouter() {
   const [isLoggedIn, setIsLoggedIn] = useState(true); // Simulating authentication status.
