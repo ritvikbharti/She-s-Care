@@ -7,7 +7,7 @@ export const sendQuery = async(userQuery)=>{
     headers: {
         accept: 'application/json',
         'content-type': 'application/json',
-        apikey: apikey
+        apikey: '8vvEKkMf3kEneMTyJ48D7qK70UOeBXtw'
     },
     data: {
         responseMode: 'sync',
@@ -17,7 +17,8 @@ export const sendQuery = async(userQuery)=>{
     };
     try{
         const res = await axios.request(options);
-        console.log(res.data)
+        console.log(res.data);
+        console.log(apikey);
         return res.data;
     }catch(error){
         console.log("CANT GET CHAT RESPONSE", error);
