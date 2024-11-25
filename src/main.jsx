@@ -11,9 +11,11 @@ import Order from './pages/OrderPage/Order.jsx';
 import { ToastContainer } from 'react-toastify';
 import UseLogin from './hooks/UseLogin.jsx'; // Correct case
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage.jsx';
+import { Provider } from 'react-redux';
+import {store} from "./app/store"
 
 function AppRouter() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulating authentication status.
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // Simulating authentication status.
 
   useEffect(() => {
     const storedLoginStatus = localStorage.getItem('isLoggedIn');
@@ -55,6 +57,8 @@ function AppRouter() {
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Provider store={store}>
     <AppRouter />
+    </Provider>
   </StrictMode>
 );

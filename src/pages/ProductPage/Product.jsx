@@ -6,6 +6,7 @@ import { FaCartShopping, FaUser } from "react-icons/fa6";
 import productData from "../../assets/product.json";
 import img1 from "../../assets/asthiposhak.png";
 import Slideshow from "../../components/Slideshow";
+import { useSelector } from "react-redux";
 
 //images import
 import t1 from "../../assets/trending01.jpg";
@@ -34,6 +35,9 @@ import { Link } from "react-router-dom";
 export default function Product() {
   const imagesUrl = [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10];
   const offerUrl = [o1, o2,o3,o4,o5,o6,o7,o8];
+
+  const items = useSelector(state=>state);
+  console.log('items3', items);
   return (
     <div>
 
@@ -79,7 +83,7 @@ export default function Product() {
                   price={product.price}
                   originalPrice={product.originalPrice}
                   discount={product.discount}
-                  imageUrl={img1}
+                  imageUrl={product.imageUrl}
                   bestSeller={product.bestSeller}
                 />
               ))}
@@ -115,7 +119,7 @@ export default function Product() {
                   price={product.price}
                   originalPrice={product.originalPrice}
                   discount={product.discount}
-                  imageUrl={img1}
+                  imageUrl={product.imageUrl}
                   bestSeller = {product.bestSeller}
                 />
               ))}

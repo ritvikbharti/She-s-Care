@@ -2,9 +2,11 @@ import React from "react";
 import questions from '../../assets/questions.json'
 import { toast, ToastContainer } from "react-toastify";
 export default function Quiz() {
-
+ 
     const notifySubmit = ()=>{
         toast("Test Submitted!");
+
+        toast("New Notification!");
     }
     const contextClass = {
         success: "bg-blue-600",
@@ -42,7 +44,7 @@ export default function Quiz() {
             <ToastContainer
                 toastClassName={(context) =>
                 contextClass[context?.type || "default"] +
-                " relative flex p-1 min-h-10 rounded-xl justify-between overflow-hidden font-semibold cursor-pointer"
+                " relative flex p-1 min-h-10 rounded-xl justify-between overflow-hidden font-semibold cursor-pointer m-2"
                 }
                 bodyClassName={() => "font-white  block p-3"}
                 position="bottom-right"
