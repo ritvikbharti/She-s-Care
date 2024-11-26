@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 
 const MessageBubble = ({ message }) => {
   const isUser = message.sender === "user";
@@ -13,10 +14,12 @@ const MessageBubble = ({ message }) => {
         className={`max-w-xs p-3 text-sm rounded-2xl ${
           isUser
             ? "bg-primary-blue-900 text-white self-end"
-            : "bg-dark-400 text-white self-start"
+            : "bg-dark-600 text-white self-start"
         }`}
       >
-        {message.text}
+        <ReactMarkdown>
+          {message.text}
+        </ReactMarkdown>
       </div>
     </div>
   );

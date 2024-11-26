@@ -13,11 +13,12 @@ import { ToastContainer } from "react-toastify";
 import UseLogin from "./hooks/UseLogin.jsx"; // Correct case
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage.jsx";
 import AuthLayout from "./Layouts/AuthLayout.jsx";
-
+const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID; // Replace with your client ID
 import { GoogleOAuthProvider } from "@react-oauth/google"; // Import GoogleOAuthProvider
 
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import { RSC_ACTION_VALIDATE_ALIAS } from "next/dist/lib/constants.js";
 
 function AppRouter() {
   const [isLoggedIn, setIsLoggedIn] = useState(true); // Simulating authentication status.
@@ -76,9 +77,6 @@ function AppRouter() {
     </>
   );
 }
-
-const clientId =
-  "348743011453-ueeoim0g3ml4qicgqrqo1dqqnsnl8bto.apps.googleusercontent.com"; // Replace with your client ID
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

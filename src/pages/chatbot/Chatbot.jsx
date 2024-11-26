@@ -50,7 +50,7 @@ const Chatbot = () => {
 
 
   return (
-    <div className="flex flex-col p-2  mx-auto text-white h-[29rem] bg-dark-900  rounded-2xl  transition-all max-h-full">
+    <div className="flex flex-col p-2   mx-2 text-white h-[29rem] bg-dark-900  rounded-2xl  transition-all max-h-full">
       <MessageList messages={messages} />
 
       {!chatSession ?   
