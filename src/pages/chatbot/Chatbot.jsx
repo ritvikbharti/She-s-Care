@@ -30,6 +30,7 @@ const Chatbot = () => {
       setMessages((prev)=>[...prev, userMessage]);
 
       const queryRes = await sendQuery(userQuery);
+      console.log(queryRes);
       const ans = queryRes.data.answer;
       // const ans = "Getting answer...";
       

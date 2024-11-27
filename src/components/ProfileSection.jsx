@@ -23,7 +23,7 @@ const ProfileSection = () => {
       <div className="profile-image-container m-auto my-3 w-[13rem] ">
         {/* Profile image can go here if needed */}
         <img src={userImg} alt="" />
-        <h2 className="font-semibold text-center mt-2"> Anraa</h2>
+        <h2 className="font-semibold text-center mt-2">Nidhi</h2>
       </div>
       {/* <div className="last-patient-container flex flex-col">
         <div className="heading flex justify-between mx-9 my-2">

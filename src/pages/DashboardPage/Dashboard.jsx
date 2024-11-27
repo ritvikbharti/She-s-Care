@@ -8,7 +8,8 @@ import { GiBodyHeight, GiHealthNormal } from "react-icons/gi";
 import { MdMonitorHeart, MdBloodtype } from "react-icons/md";
 import { FaPlus, FaAngleDown } from "react-icons/fa6";
 import girlImg from "../../assets/girl.png";
-
+import Mycalendar from "../../components/Mycalender";
+import Graphs from "../../components/Graphs";
 export default function Dashboard() {
   const [currentMonth] = useState(() => {
     const today = new Date();
@@ -62,7 +63,7 @@ export default function Dashboard() {
                   Welcome, <span className="font-bold">Nidhi Kumari</span>
                 </h2>
                 <p className="text-indigo-200 text-xl   flex justify-end ">
-                  Have a nice day at work
+                  Have a nice day 
                 </p>
               </div>
             </div>
@@ -112,8 +113,9 @@ export default function Dashboard() {
               <FaPlus className="size-9  text-primary_hard" />
             </div>
           </Card>
-        </div>
-
+        </div>     
+        {/* Graphs Component */}
+     
         {/* Calendar Section */}
         <Card className="bg-secondary_dark p-6 rounded-2xl relative top-4 mb-8 h-[25rem]">
           <div className="flex justify-between items-center mb-4">
@@ -147,6 +149,8 @@ export default function Dashboard() {
             </div>
           </div>
         </Card>
+        <Graphs />
+        <Mycalendar/>
       </div>
     </div>
   );

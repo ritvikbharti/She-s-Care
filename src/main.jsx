@@ -21,7 +21,7 @@ import { store } from "./app/store";
 import { RSC_ACTION_VALIDATE_ALIAS } from "next/dist/lib/constants.js";
 
 function AppRouter() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Simulating authentication status.
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulating authentication status.
 
   useEffect(() => {
     const storedLoginStatus = localStorage.getItem("isLoggedIn");
@@ -76,7 +76,7 @@ function AppRouter() {
       <RouterProvider router={router} />
     </>
   );
-}
+} 
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

@@ -22,6 +22,9 @@ module.exports = {
         primary_dark: '#202445',
         regal_blue: '#272d4d',
         secondary_dark: '#333a65',
+        primary: '#6366F1', // Indigo
+        secondary: '#1E293B', // Dark Background
+        accent: '#60A5FA',
         primary_gray: 'rgb(148 163 184)',
         dark: {
           400: '#464f8b',
