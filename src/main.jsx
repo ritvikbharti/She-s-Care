@@ -18,7 +18,6 @@ import { GoogleOAuthProvider } from "@react-oauth/google"; // Import GoogleOAuth
 
 import { Provider } from "react-redux";
 import { store } from "./app/store";
-import { RSC_ACTION_VALIDATE_ALIAS } from "next/dist/lib/constants.js";
 
 function AppRouter() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulating authentication status.
