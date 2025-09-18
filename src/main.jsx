@@ -20,20 +20,91 @@ import { store } from "./app/store";
 
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
+// function AppRouter() {
+//   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+//   useEffect(() => {
+//     const storedLoginStatus = localStorage.getItem("isLoggedIn");
+//     if (storedLoginStatus === "true") {
+//       setIsLoggedIn(true);
+//     }
+//   }, []);
+
+//   const handleLogin = () => {
+//     setIsLoggedIn(true);
+//     localStorage.setItem("isLoggedIn", "true");
+//   };
+
+//   const router = createBrowserRouter([
+//     {
+//       path: "/",
+//       element: (
+//         <UseLogin isLoggedIn={isLoggedIn}>
+//           <HomeLayout />
+//         </UseLogin>
+//       ),
+//       children: [
+//         { path: "", element: <Home /> },
+//         { path: "product", element: <Product /> },
+//         { path: "doctor", element: <Doctor /> },
+//         { path: "test", element: <Test /> },
+//         { path: "order", element: <Order /> },
+//       ],
+//     },
+//     {
+//       path: "/login",
+//       element: (
+//         <AuthLayout>
+//           <LoginPage onLogin={handleLogin} />
+//         </AuthLayout>
+//       ),
+//     },
+//     {
+//       path: "/register",
+//       element: (
+//         <AuthLayout>
+//           <RegistrationPage onLogin={handleLogin} />
+//         </AuthLayout>
+//       ),
+//     },
+//   ]);
+
+//   return (
+//     <>
+//       <ToastContainer />
+//       <RouterProvider router={router} />
+//     </>
+//   );
+// }
+
 function AppRouter() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const storedLoginStatus = localStorage.getItem("isLoggedIn");
-    if (storedLoginStatus === "true") {
-      setIsLoggedIn(true);
+    // check for token in localStorage
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      setIsLoggedIn(true); // you can also call backend `/api/auth/me` here to validate
+    } else {
+      setIsLoggedIn(false);
     }
+
+    setLoading(false);
   }, []);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
-    localStorage.setItem("isLoggedIn", "true");
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen text-white bg-gray-900">
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
 
   const router = createBrowserRouter([
     {
