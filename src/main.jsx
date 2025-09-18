@@ -9,23 +9,23 @@ import Doctor from "./pages/DoctorPage/Doctor.jsx";
 import Test from "./pages/TestPage/Test.jsx";
 import Order from "./pages/OrderPage/Order.jsx";
 import LoginPage from "./pages/LoginPage/LoginPage.jsx";
-import { ToastContainer } from "react-toastify";
-import UseLogin from "./hooks/UseLogin.jsx"; // Correct case
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage.jsx";
 import AuthLayout from "./Layouts/AuthLayout.jsx";
-const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID; // Replace with your client ID
-import { GoogleOAuthProvider } from "@react-oauth/google"; // Import GoogleOAuthProvider
+import UseLogin from "./hooks/UseLogin.jsx";
+import { ToastContainer } from "react-toastify";
 
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 
+const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
 function AppRouter() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulating authentication status.
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const storedLoginStatus = localStorage.getItem("isLoggedIn");
     if (storedLoginStatus === "true") {
-      console.log("entered");
       setIsLoggedIn(true);
     }
   }, []);
@@ -75,7 +75,7 @@ function AppRouter() {
       <RouterProvider router={router} />
     </>
   );
-} 
+}
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
