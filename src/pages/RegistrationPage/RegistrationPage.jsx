@@ -236,9 +236,9 @@ const RegistrationPage = ({ onLogin }) => {
       {/* Left Section */}
       <div className="w-1/2 flex flex-col items-center justify-center bg-gradient-to-b from-indigo-900 to-gray-900 p-10">
         <div className="text-4xl font-extrabold mb-3 text-white text-[59px] font-serif">
-          Fairy Mate
+          SheCare
         </div>
-        <p className="text-gray-600 text-[19px] ml-[5rem] font-serif">
+        <p className="text-gray-400 text-[19px] ml-[5 rem] font-serif">
           Consult to our Doctors Seamlessly.
         </p>
       </div>
