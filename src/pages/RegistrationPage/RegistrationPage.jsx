@@ -239,7 +239,7 @@ const RegistrationPage = ({ onLogin }) => {
           SheCare
         </div>
         <p className="text-gray-400 text-[19px] ml-[5 rem] font-serif">
-          Consult to our Doctors Seamlessly.
+          Seamless Support for Your PCOD/PCOS Journey.
         </p>
       </div>
 
