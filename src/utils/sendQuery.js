@@ -1,29 +1,42 @@
 import axios from "axios";
-const apikey = import.meta.env.VITE_CHAT_API_KEY;
-export const sendQuery = async(userQuery)=>{
-    const options = {
-    method: 'POST',
-    url: 'https://api.on-demand.io/chat/v1/sessions/6744b768d2b01e61b6088012/query',
-    headers: {
-        accept: 'application/json',
-        'content-type': 'application/json',
-        apikey: apikey
+const chatApi = import.meta.env.VITE_CHAT_API_KEY;
+
+export const sendQuery = async (sessionId, userQuery) => {
+  const url = `https://api.on-demand.io/chat/v1/sessions/${sessionId}/query`;
+
+  const body = {
+    endpointId: "predefined-openai-gpt4.1", // from your Node example
+    query: userQuery,
+    agentIds: ["agent-1712327325", "agent-1713962163"],
+    responseMode: "sync",
+    reasoningMode: "oss",
+    modelConfigs: {
+      fulfillmentPrompt: "",
+      stopSequences: [],
+      temperature: 0.7,
+      topP: 1,
+      maxTokens: 0,
+      presencePenalty: 0,
+      frequencyPenalty: 0,
     },
-    data: {
-        responseMode: 'sync',
-        query: userQuery,
-        endpointId: 'predefined-openai-gpt4o'
-    }
-    };
-    try{
-     
-        const res = await axios.request(options);
-        console.log(res.data);
-        return res.data;
-    }catch(error){
-        console.log("CANT GET CHAT RESPONSE", error);
-    }
-}
+  };
+
+  try {
+    const response = await axios.post(url, body, {
+      headers: {
+        "Content-Type": "application/json",
+        apikey: chatApi,
+      },
+    });
+
+    console.log("Query Response:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("CANT GET CHAT RESPONSE:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
 
 
 // {

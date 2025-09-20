@@ -77,21 +77,42 @@ const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 //   );
 // }
 
-function AppRouter() {
+export default function AppRouter() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // check for token in localStorage
-    const token = localStorage.getItem("token");
+    const checkLogin = async () => {
+      const token = localStorage.getItem("token");
 
-    if (token) {
-      setIsLoggedIn(true); // you can also call backend `/api/auth/me` here to validate
-    } else {
-      setIsLoggedIn(false);
-    }
+      if (!token) {
+        setIsLoggedIn(false);
+        setLoading(false);
+        return;
+      }
 
-    setLoading(false);
+      try {
+        // Validate token with backend
+        const res = await axios.get("http://localhost:5000/api/auth/me", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (res.data) {
+          setIsLoggedIn(true);
+        } else {
+          setIsLoggedIn(false);
+          localStorage.clear();
+        }
+      } catch (err) {
+        console.error("⚠️ Auth check failed (backend down or invalid token):", err.message);
+        setIsLoggedIn(false);
+        localStorage.clear(); // clear invalid token
+      }
+
+      setLoading(false);
+    };
+
+    checkLogin();
   }, []);
 
   const handleLogin = () => {
