@@ -1,7 +1,13 @@
-import { StrictMode, useEffect, useState } from "react";
+import { StrictMode, useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
+
 import HomeLayout from "./Layouts/HomeLayout.jsx";
 import Home from "./pages/HomePage/Home.jsx";
 import Product from "./pages/ProductPage/Product.jsx";
@@ -12,72 +18,12 @@ import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage.jsx";
 import AuthLayout from "./Layouts/AuthLayout.jsx";
 import UseLogin from "./hooks/UseLogin.jsx";
-import { ToastContainer } from "react-toastify";
-
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { Provider } from "react-redux";
-import { store } from "./app/store";
+import { UserProvider } from "./context/userContext.jsx";
+import axios from "axios";
 
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
-// function AppRouter() {
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-//   useEffect(() => {
-//     const storedLoginStatus = localStorage.getItem("isLoggedIn");
-//     if (storedLoginStatus === "true") {
-//       setIsLoggedIn(true);
-//     }
-//   }, []);
-
-//   const handleLogin = () => {
-//     setIsLoggedIn(true);
-//     localStorage.setItem("isLoggedIn", "true");
-//   };
-
-//   const router = createBrowserRouter([
-//     {
-//       path: "/",
-//       element: (
-//         <UseLogin isLoggedIn={isLoggedIn}>
-//           <HomeLayout />
-//         </UseLogin>
-//       ),
-//       children: [
-//         { path: "", element: <Home /> },
-//         { path: "product", element: <Product /> },
-//         { path: "doctor", element: <Doctor /> },
-//         { path: "test", element: <Test /> },
-//         { path: "order", element: <Order /> },
-//       ],
-//     },
-//     {
-//       path: "/login",
-//       element: (
-//         <AuthLayout>
-//           <LoginPage onLogin={handleLogin} />
-//         </AuthLayout>
-//       ),
-//     },
-//     {
-//       path: "/register",
-//       element: (
-//         <AuthLayout>
-//           <RegistrationPage onLogin={handleLogin} />
-//         </AuthLayout>
-//       ),
-//     },
-//   ]);
-
-//   return (
-//     <>
-//       <ToastContainer />
-//       <RouterProvider router={router} />
-//     </>
-//   );
-// }
-
-export default function AppRouter() {
+function AppRouter() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -104,9 +50,9 @@ export default function AppRouter() {
           localStorage.clear();
         }
       } catch (err) {
-        console.error("⚠️ Auth check failed (backend down or invalid token):", err.message);
+        console.error("⚠️ Auth check failed:", err.message);
         setIsLoggedIn(false);
-        localStorage.clear(); // clear invalid token
+        localStorage.clear();
       }
 
       setLoading(false);
@@ -173,7 +119,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <GoogleOAuthProvider clientId={clientId}>
       <Provider store={store}>
-        <AppRouter />
+        <UserProvider>
+          <AppRouter />
+        </UserProvider>
       </Provider>
     </GoogleOAuthProvider>
   </StrictMode>
