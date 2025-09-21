@@ -1,138 +1,153 @@
-import React, { useState } from "react";
-import questions from "../../assets/questions.json";
+import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { sendQuery } from "../../utils/sendQuery";
+import axios from "axios";
+
 export default function Quiz() {
+  const [questions, setQuestions] = useState({});
   const [selectedOptions, setSelectedOptions] = useState({});
-  
+  const [loading, setLoading] = useState(true);
+  const [expandedCategories, setExpandedCategories] = useState({});
+  const [report, setReport] = useState(null); //  Store generated report
 
+  const user = JSON.parse(localStorage.getItem("user"));
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const userId = user?.id;
 
-  const handleOptionSelect = (questionId, optionIndex) => {
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/questions");
+        setQuestions(res.data || {});
+        const initialExpanded = {};
+        Object.keys(res.data).forEach((cat) => (initialExpanded[cat] = true));
+        setExpandedCategories(initialExpanded);
+      } catch (err) {
+        console.error(err);
+        toast.error("Failed to load questions.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchQuestions();
+  }, []);
+
+  if (loading) return <div>Loading questions...</div>;
+  if (!Object.keys(questions).length) return <div>No questions available.</div>;
+
+  const handleOptionSelect = (questionId, value) => {
     setSelectedOptions((prev) => ({
       ...prev,
-      [questionId]: optionIndex,
+      [questionId]: value,
     }));
   };
 
-  const notifySubmit = async () => {
-    try {
-
-
-      console.log("Selected items:", selectedOptions);
-      toast.info("Test submitted!");
-      const selectedString = JSON.stringify(selectedOptions);
-      const que = `These are the options I selected for my PCOD report. I'll ask questions based on them. Update if you have similar previous data. Test: ${selectedString}`
-      const res = await sendQuery(`These are the options I selected for my PCOD report. I'll ask questions based on them. Update if you have similar previous data. Test: ${que}`);
-      console.log(que);
-      if (res) {
-        console.log(res);
-        toast.success("Test updated successfully! 😊");
-      } else {
-        toast.error("Failed to update the test. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error while submitting the test:", error);
-      toast.error("An error occurred. Please try again later.");
-    }
+  const toggleCategory = (category) => {
+    setExpandedCategories((prev) => ({
+      ...prev,
+      [category]: !prev[category],
+    }));
   };
-  
 
-  const contextClass = {
-    success: "bg-gray-600",
-    error: "bg-red-600",
-    info: "bg-indigo-600",
-    warning: "bg-orange-400",
-    default: "bg-indigo-500",
-    dark: "bg-white-600 font-gray-300",
+  const handleSubmit = async () => {
+    if (!isLoggedIn || !userId) {
+      toast.error("You must be logged in to submit the quiz!");
+      return;
+    }
+
+    try {
+      const answers = {};
+      Object.entries(selectedOptions).forEach(([qId, value]) => {
+        answers[qId] = { value };
+      });
+
+      const res = await axios.post(
+        "http://localhost:5000/api/questions/submit",
+        { answers, userId }
+      );
+
+      if (res.data.success) {
+        toast.success("Report generated and saved!");
+        setReport(res.data.report); // Save report to state
+        console.log("Generated Report:", res.data.report);
+      } else {
+        toast.error("Failed to generate report.");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("An error occurred. Please try again.");
+    }
   };
 
   return (
     <div className="my-8 h-fit">
-      {questions.map((question, index) => (
-        <div key={question.id} className="my-10">
-          <div className="my-5 text-lg">{`Q${index + 1}: ${question.question}`}</div>
-          <ul>
-            {question.options.map((option, optionIndex) => (
-              <li
-                key={optionIndex}
-                className={`p-3 px-6 rounded-2xl my-2 cursor-pointer ${
-                  selectedOptions[question.question] === option.option
-                    ? "bg-primary_hard"
-                    : "bg-dark-400 hover:bg-primary_hard"
-                }`}
-                onClick={() => handleOptionSelect(question.question, option.option)}
-              >
-                {option.option}
-              </li>
-            ))}
-          </ul>
+      {/* Quiz */}
+      {Object.entries(questions).map(([category, qs]) => (
+        <div key={category} className="mb-8 border rounded-lg shadow-md">
+          <div
+            className="bg-primary_hard text-white p-4 cursor-pointer flex justify-between items-center"
+            onClick={() => toggleCategory(category)}
+          >
+            <span className="font-bold text-lg">{category}</span>
+            <span>{expandedCategories[category] ? "▼" : "▶"}</span>
+          </div>
+          {expandedCategories[category] && (
+            <div className="p-4">
+              {qs.map((q, idx) => (
+                <div key={q._id} className="my-5">
+                  <div className="my-3">{`Q${idx + 1}: ${q.question}`}</div>
+                  <ul>
+                    {q.options.map((opt, i) => (
+                      <li
+                        key={i}
+                        className={`p-3 px-6 rounded-2xl my-2 cursor-pointer ${
+                          selectedOptions[q._id] === opt.value
+                            ? "bg-primary_hard text-white"
+                            : "bg-gray-400 hover:bg-primary_hard hover:text-white"
+                        }`}
+                        onClick={() => handleOptionSelect(q._id, opt.value)}
+                      >
+                        {opt.option}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       ))}
-      <div className="flex justify-end">
+
+      <div className="flex justify-end mt-4">
         <button
-          className="bg-primary_hard px-9 py-3 rounded-2xl"
-          onClick={notifySubmit}
+          className="bg-primary_hard px-9 py-3 rounded-2xl text-white"
+          onClick={handleSubmit}
         >
           Submit
         </button>
-        <ToastContainer
-          toastClassName={(context) =>
-            contextClass[context?.type || "default"] +
-            " relative flex flex-row p-1 min-h-10 rounded-xl justify-between overflow-hidden font-semibold cursor-pointer m-2"
-          }
-          bodyClassName={() => "font-white  block p-3"}
-          position="bottom-right"
-          hideProgressBar
-          autoClose={2000}
-        />
       </div>
+
+      {/* Display report after submission */}
+      {report && (
+        <div className="mt-10 p-6 border rounded-lg bg-gray-100 text-black">
+          <h2 className="text-2xl font-bold mb-4">Your PCOD Test Report</h2>
+          <p>
+            <strong>Risk Level:</strong> {report.report.riskLevel}
+          </p>
+          <p>
+            <strong>Total Score:</strong> {report.report.totalScore}
+          </p>
+          <div className="mt-4">
+            <strong>Recommendations:</strong>
+            <ul className="list-disc ml-6 mt-2">
+              {report.report.recommendations.map((rec, i) => (
+                <li key={i}>{rec}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+
+      <ToastContainer position="bottom-right" autoClose={2000} hideProgressBar />
     </div>
   );
 }
-
-
-/*
-{
-    "How would you describe your menstrual cycle pattern?": {
-        "option": "Regular (Occurs every 21–35 days)",
-        "value": "regular"
-    },
-    "When you have your period, how long does it usually last?": {
-        "option": "Less than 2 days",
-        "value": "short"
-    },
-    "Have you noticed any of the following? (Select all that apply)": {
-        "option": "Excess facial hair growth (On face, chin, or upper lip)",
-        "value": "facial_hair"
-    },
-    "How would you describe your menstrual flow?": {
-        "option": "Light to Moderate",
-        "value": "light"
-    },
-    "Do you experience frequent acne breakouts?": {
-        "option": "Yes, often (On face, chest, or back)",
-        "value": "often"
-    },
-    "Have you gained weight recently, especially around your abdomen?": {
-        "option": "Yes, mild weight gain",
-        "value": "mild"
-    },
-    "Have you noticed darkened skin patches in any of the following areas?": {
-        "option": "Groin area",
-        "value": "groin"
-    },
-    "Have you experienced difficulty conceiving or been diagnosed with infertility?": {
-        "option": "No",
-        "value": "no"
-    },
-    "Do you frequently feel fatigued or experience mood swings?": {
-        "option": "Sometimes",
-        "value": "sometimes"
-    },
-    "Does anyone in your immediate family have PCOD, diabetes, or any other hormonal disorder?": {
-        "option": "Yes, diagnosed family members",
-        "value": "yes"
-    }
-}
-
-*/
