@@ -222,7 +222,7 @@ export default function Dashboard() {
             Real Results from Real Women
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <Card className="bg-secondary_dark p-6">
+<Card className="bg-secondary_dark p-6">
               <h3 className="text-4xl font-bold text-indigo-400">89%</h3>
               <p className="text-slate-400">
                 Reported improved cycle regularly
