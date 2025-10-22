@@ -195,7 +195,10 @@ const RegistrationPage = ({ onLogin }) => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
+      const API_URL = process.env.REACT_APP_API_URL?.trim();
+      console.log(API_URL);
+      
+      const res = await axios.post(`https://she-care-backend-63p6.onrender.com/api/auth/register`, {
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
