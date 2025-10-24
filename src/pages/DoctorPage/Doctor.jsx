@@ -39,7 +39,7 @@ export default function DoctorPage() {
   // Book appointment handler
  const handleBook = async (doctorId) => {
     try {
-      const res = await fetch("http://localhost:5000/api/appointments", {
+      const res = await fetch("https://she-care-backend-63p6.onrender.com/api/appointments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

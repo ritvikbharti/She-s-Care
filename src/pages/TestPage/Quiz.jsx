@@ -61,7 +61,7 @@ export default function Quiz() {
       });
 
       const res = await axios.post(
-        "http://localhost:5000/api/questions/submit",
+        "https://she-care-backend-63p6.onrender.com/api/questions/submit",
         { answers, userId }
       );
 

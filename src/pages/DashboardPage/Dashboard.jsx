@@ -41,7 +41,7 @@ export default function Dashboard() {
           return;
         }
 
-        const res = await axios.get("http://localhost:5000/api/auth/me", {
+        const res = await axios.get("https://she-care-backend-63p6.onrender.com/api/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
