@@ -1,34 +1,56 @@
-# She-Care Project (PCOD Awareness & Support)
+She-Care (PCOD Awareness & Support)
+Project Overview
 
-## Project Overview
-She-Care is a web application designed to provide information, resources, and guidance for women dealing with PCOD (Polycystic Ovarian Disease).  
-The project aims to educate, support, and empower women by providing reliable content, tips, and tracking tools.
+She-Care is a web app made to help women understand and manage PCOD (Polycystic Ovarian Disease).
+It provides information, tips, and tools to support a healthy lifestyle and increase awareness about PCOD.
 
-## Key Features
-- PCOD awareness articles and tips  
-- Symptom tracking and suggestions  
-- Healthy lifestyle recommendations  
-- Contact support for guidance  
+Features
 
-## Technologies Used
-- **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** Node.js, Express.js  
-- **Database:** MongoDB  
-- **Other Tools:** GitHub for version control  
+PCOD awareness articles and tips
 
-## How to Run
-1. Clone the repo:  
-   ```bash
-   git clone https://github.com/ritvikbharti/She-s-Care.git
+Symptom tracking and suggestions
+
+Healthy diet and lifestyle recommendations
+
+Contact support for help or guidance
+
+Technologies Used
+
+Frontend: React, HTML, CSS, JavaScript
+
+Backend: Node.js, Express.js
+
+Database: MongoDB
+
+Tools: GitHub, Vite
+
+How to Run the Project
+
+Clone the repository
+
+git clone https://github.com/ritvikbharti/She-s-Care.git
 
 
+Go to the project folder
 
-   
-# React + Vite
+cd She-s-Care
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Install dependencies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+npm install
+
+
+Run the app
+
+npm run dev
+
+About React + Vite
+
+This project uses React with Vite.
+Vite is a tool that helps React apps run faster and refresh quickly while developing.
+It has two main plugins:
+
+@vitejs/plugin-react (uses Babel)
+
+@vitejs/plugin-react-swc (uses SWC, faster)
