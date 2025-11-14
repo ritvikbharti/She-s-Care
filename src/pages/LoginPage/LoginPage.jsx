@@ -171,7 +171,7 @@ const LoginPage = ({ onLogin }) => {
       // Notify app state (if needed)
       onLogin();
 
-      toast.success("Login successful!");
+      toast.success("User Login successful!");
       navigate("/"); // redirect to dashboard / home
     } catch (error) {
       console.error("Login error:", error);
