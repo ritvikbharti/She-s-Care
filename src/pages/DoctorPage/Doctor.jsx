@@ -19,7 +19,7 @@ export default function DoctorPage() {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/doctors");
+        const res = await fetch("https://she-care-backend-63p6.onrender.com/api/doctors");
         const data = await res.json();
         setDoctors(data);
         setLoading(false);

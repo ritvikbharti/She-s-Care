@@ -16,7 +16,7 @@ export default function Quiz() {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/questions");
+        const res = await axios.get("https://she-care-backend-63p6.onrender.com/api/questions");
         setQuestions(res.data || {});
         const initialExpanded = {};
         Object.keys(res.data).forEach((cat) => (initialExpanded[cat] = true));
