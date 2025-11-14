@@ -92,7 +92,7 @@ export default function Order() {
 
               <Link to="/product">
                 <Button className="w-full bg-primary-blue-600 top-2 relative rounded-xl">
-                  ADD MORE ITEMS
+                  ADD MORE ITEM
                 </Button>
               </Link>
             </div>
