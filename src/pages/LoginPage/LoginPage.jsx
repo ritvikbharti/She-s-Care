@@ -233,7 +233,7 @@ const LoginPage = ({ onLogin }) => {
             <input
               type="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="Enter your valid password"
               value={formData.password}
               onChange={handleInputChange}
               className="p-3 w-full bg-gray-700 rounded-md focus:outline-none"
