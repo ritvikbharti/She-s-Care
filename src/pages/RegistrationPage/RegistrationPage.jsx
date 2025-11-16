@@ -230,7 +230,7 @@ const RegistrationPage = ({ onLogin }) => {
       navigate("/");
     },
     onError: () => {
-      toast.error("Google Login Failed!");
+      toast.error("Google Login Failed!!");
     },
   });
 
