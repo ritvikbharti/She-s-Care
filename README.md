@@ -5,7 +5,8 @@ It provides awareness, useful tips, and tools to promote a healthy lifestyle and
 
 ---
 
-## ✨ Features
+
+## ✨ Features of project
 
 ### 📘 Awareness & Education
 - Articles and guides about PCOD
@@ -22,6 +23,7 @@ It provides awareness, useful tips, and tools to promote a healthy lifestyle and
 - Personalized responses for queries
 
 ---
+
 
 ## 🛠️ Technologies Used
 - **Frontend:** React, HTML, CSS, JavaScript  
