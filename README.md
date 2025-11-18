@@ -1,60 +1,67 @@
-# 🌸 She-Care (PCOD Awareness & Support)
+🌸 She-Care: PCOD Awareness and Support
 
-She-Care is a **web application** created to help women understand and manage **Polycystic Ovarian Disease (PCOD)**.  
-It provides awareness, useful tips, and tools to promote a healthy lifestyle and support women through reliable information.
+She-Care is a web application designed to help women understand and manage Polycystic Ovarian Disease (PCOD). It combines reliable information with simple tools that support healthier habits and daily tracking.
 
----
+✨ Key Features
+📘 Awareness and Education
+
+Easy-to-understand articles about PCOD
+
+Daily health tips
+
+Guidance on lifestyle, nutrition, and wellness
+
+🧭 Symptom Tracking
+
+Log and monitor symptoms
+
+Suggestions based on user input
+
+Progress tracking over time
+
+💬 Support and Guidance
+
+Reach out to experts or the support team
+
+Get personalized responses for queries
+
+🛠️ Tech Stack
+
+Frontend: React, HTML, CSS, JavaScript
+
+Backend: Node.js, Express.js
+
+Database: MongoDB
+
+Build Tool: Vite
+
+Version Control: Git and GitHub
+
+🚀 Getting Started
+
+Clone the repository
+
+git clone https://github.com/ritvikbharti/She-s-Care.git
 
 
-## ✨ Features of project
+Move into the project folder
 
-### 📘 Awareness & Education
-- Articles and guides about PCOD
-- Daily health tips and suggestions
-- Lifestyle improvement recommendations
-
-### 🧭 Symptom Tracking
-- Log and monitor PCOD symptoms
-- Get suggestions based on inputs
-- Track progress over time
-
-### 💬 Support & Guidance
-- Contact experts or support team
-- Personalized responses for queries
-
----
-
-
-## 🛠️ Technologies Used
-- **Frontend:** React, HTML, CSS, JavaScript  
-- **Backend:** Node.js, Express.js  
-- **Database:** MongoDB  
-- **Build Tool:** Vite  
-- **Version Control:** Git & GitHub  
-
----
-
-## 🚀 How to Run
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/ritvikbharti/She-s-Care.git
-Go to the project folder
 cd She-s-Care
+
 
 Install dependencies
 
 npm install
 
-Start the app
+
+Start the development server
 
 npm run dev
 
-⚙️ About React + Vite
-This project uses React with Vite, a fast build tool that improves speed and performance during development.
+⚙️ React + Vite
 
-@vitejs/plugin-react → uses Babel for fast refresh
+This project uses React with Vite for a faster development experience.
 
-@vitejs/plugin-react-swc → uses SWC (Rust-based) for even faster builds
+@vitejs/plugin-react uses Babel for fast refresh
 
-
+@vitejs/plugin-react-swc uses SWC (Rust-based) for even faster builds
