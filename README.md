@@ -62,4 +62,10 @@ This project uses React with Vite, a fast build tool that improves speed and per
 
 @vitejs/plugin-react-swc → uses SWC (Rust-based) for even faster builds
 
+## 🧪 Quality Assurance (QA)
 
+QA Testing:
+- Functional testing performed on core features
+- Bugs identified and reported
+- Fixes verified after updates
+- Regression testing completed
