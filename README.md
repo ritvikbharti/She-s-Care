@@ -53,6 +53,11 @@ npm run dev
 ⚙️ About React + Vite
 This project uses React with Vite, a fast build tool that improves speed and performance during development.
 
+
+
+
+
+//QUALITY ASSURANCE DONE BY SHS
 @vitejs/plugin-react → uses Babel for fast refresh
 
 @vitejs/plugin-react-swc → uses SWC (Rust-based) for even faster builds
