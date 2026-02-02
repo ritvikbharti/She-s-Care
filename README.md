@@ -74,3 +74,8 @@ QA Testing:
 git add README.md
 git commit -m "QA testing documentation added"
 git push
+
+### 🔍 Testing Scope
+- Login and authentication flow tested
+- Symptom tracking workflow validated
+- Form validations checked
