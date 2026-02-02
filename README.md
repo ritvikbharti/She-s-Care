@@ -69,3 +69,8 @@ QA Testing:
 - Bugs identified and reported
 - Fixes verified after updates
 - Regression testing completed
+
+
+git add README.md
+git commit -m "QA testing documentation added"
+git push
