@@ -79,3 +79,8 @@ git push
 - Login and authentication flow tested
 - Symptom tracking workflow validated
 - Form validations checked
+
+- ### 🔁 Regression Testing
+- Retested features after bug fixes
+- Ensured no existing functionality was broken
+
