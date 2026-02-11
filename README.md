@@ -5,7 +5,8 @@ It provides awareness, useful tips, and tools to promote a healthy lifestyle and
 
 ---
 
-## ✨ Features
+
+## ✨ Features of project
 
 ### 📘 Awareness & Education
 - Articles and guides about PCOD
@@ -22,6 +23,7 @@ It provides awareness, useful tips, and tools to promote a healthy lifestyle and
 - Personalized responses for queries
 
 ---
+
 
 ## 🛠️ Technologies Used
 - **Frontend:** React, HTML, CSS, JavaScript  
@@ -51,8 +53,43 @@ npm run dev
 ⚙️ About React + Vite
 This project uses React with Vite, a fast build tool that improves speed and performance during development.
 
+
+
+
+
+//QUALITY ASSURANCE DONE BY SHS
 @vitejs/plugin-react → uses Babel for fast refresh
 
 @vitejs/plugin-react-swc → uses SWC (Rust-based) for even faster builds
+
+## 🧪 Quality Assurance (QA)
+
+QA Testing:
+- Functional testing performed on core features
+- Bugs identified and reported
+- Fixes verified after updates
+- Regression testing completed
+
+
+git add README.md
+git commit -m "QA testing documentation added"
+git push
+
+### 🔍 Testing Scope
+- Login and authentication flow tested
+- Symptom tracking workflow validated
+- Form validations checked
+
+- ### 🔁 Regression Testing
+- Retested features after bug fixes
+- Ensured no existing functionality was broken
+
+### 🤖 AI Feature Validation
+- Verified AI responses for correctness
+- Checked stability under multiple inputs
+
+### ✅ Final QA Review
+- Final testing performed before submission
+- Application stability confirmed
 
 
