@@ -124,6 +124,7 @@ import React, { useState } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import google from "../../assets/logo/google.png";
 import { Link, useNavigate } from "react-router-dom";
+// import { useGoogleLogin } from '@react-oauth/google';
 import { toast } from "react-toastify";
 import axios from "axios"; //  use axios for backend API calls
 import "react-toastify/dist/ReactToastify.css";
@@ -184,7 +185,7 @@ const LoginPage = ({ onLogin }) => {
     onSuccess: (response) => {
       console.log("Google Login Success:", response);
       toast.success("Google Login Successful!");
-      navigate("/");
+      navigate("/Dashboard");
     },
     onError: () => {
       toast.error("Google Login Failed!");

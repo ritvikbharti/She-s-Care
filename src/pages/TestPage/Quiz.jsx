@@ -1,153 +1,78 @@
-import React, { useEffect, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import React, { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
-export default function Quiz() {
-  const [questions, setQuestions] = useState({});
-  const [selectedOptions, setSelectedOptions] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [expandedCategories, setExpandedCategories] = useState({});
-  const [report, setReport] = useState(null); //  Store generated report
+export default function Quiz({ setRisk, setDetected }) {
 
-  const user = JSON.parse(localStorage.getItem("user"));
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  const userId = user?.id;
+  const [form, setForm] = useState({
+    BMI: "",
+    Cycle_length: "",
+    FSH: "",
+    LH: "",
+    FSH_LH: "",
+    AMH: "",
+    Follicle_No_L: "",
+    Follicle_No_R: "",
+    Endometrium: ""
+  });
 
-  useEffect(() => {
-    const fetchQuestions = async () => {
-      try {
-        const res = await axios.get("https://she-care-backend-63p6.onrender.com/api/questions");
-        setQuestions(res.data || {});
-        const initialExpanded = {};
-        Object.keys(res.data).forEach((cat) => (initialExpanded[cat] = true));
-        setExpandedCategories(initialExpanded);
-      } catch (err) {
-        console.error(err);
-        toast.error("Failed to load questions.");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchQuestions();
-  }, []);
-
-  if (loading) return <div>Loading questions...</div>;
-  if (!Object.keys(questions).length) return <div>No questions available.</div>;
-
-  const handleOptionSelect = (questionId, value) => {
-    setSelectedOptions((prev) => ({
-      ...prev,
-      [questionId]: value,
-    }));
-  };
-
-  const toggleCategory = (category) => {
-    setExpandedCategories((prev) => ({
-      ...prev,
-      [category]: !prev[category],
-    }));
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async () => {
-    if (!isLoggedIn || !userId) {
-      toast.error("You must be logged in to submit the quiz!");
-      return;
-    }
-
     try {
-      const answers = {};
-      Object.entries(selectedOptions).forEach(([qId, value]) => {
-        answers[qId] = { value };
-      });
+      const payload = {
+        BMI: Number(form.BMI),
+        Cycle_length: Number(form.Cycle_length),
+        FSH: Number(form.FSH),
+        LH: Number(form.LH),
+        FSH_LH: Number(form.FSH_LH),
+        AMH: Number(form.AMH),
+        Follicle_No_L: Number(form.Follicle_No_L),
+        Follicle_No_R: Number(form.Follicle_No_R),
+        Endometrium: Number(form.Endometrium)
+      };
 
       const res = await axios.post(
-        "https://she-care-backend-63p6.onrender.com/api/questions/submit",
-        { answers, userId }
+        "http://localhost:5000/api/ml/pcos-predict",
+        payload
       );
 
-      if (res.data.success) {
-        toast.success("Report generated and saved!");
-        setReport(res.data.report); // Save report to state
-        console.log("Generated Report:", res.data.report);
-      } else {
-        toast.error("Failed to generate report.");
-      }
+      setRisk(res.data.riskPercentage);
+      setDetected(res.data.detected);
+
+      toast.success("PCOS Risk Calculated!");
+
     } catch (err) {
       console.error(err);
-      toast.error("An error occurred. Please try again.");
+      toast.error("Prediction failed");
     }
   };
 
   return (
-    <div className="my-8 h-fit">
-      {/* Quiz */}
-      {Object.entries(questions).map(([category, qs]) => (
-        <div key={category} className="mb-8 border rounded-lg shadow-md">
-          <div
-            className="bg-primary_hard text-white p-4 cursor-pointer flex justify-between items-center"
-            onClick={() => toggleCategory(category)}
-          >
-            <span className="font-bold text-lg">{category}</span>
-            <span>{expandedCategories[category] ? "▼" : "▶"}</span>
-          </div>
-          {expandedCategories[category] && (
-            <div className="p-4">
-              {qs.map((q, idx) => (
-                <div key={q._id} className="my-5">
-                  <div className="my-3">{`Q${idx + 1}: ${q.question}`}</div>
-                  <ul>
-                    {q.options.map((opt, i) => (
-                      <li
-                        key={i}
-                        className={`p-3 px-6 rounded-2xl my-2 cursor-pointer ${
-                          selectedOptions[q._id] === opt.value
-                            ? "bg-primary_hard text-white"
-                            : "bg-gray-400 hover:bg-primary_hard hover:text-white"
-                        }`}
-                        onClick={() => handleOptionSelect(q._id, opt.value)}
-                      >
-                        {opt.option}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          )}
+    <div className="mt-6 bg-black/30 p-6 rounded-xl">
+
+      <h2 className="text-xl font-bold mb-4">Medical PCOS Test Inputs</h2>
+
+      {Object.keys(form).map((key) => (
+        <div key={key} className="mb-2">
+          <label>{key}</label>
+          <input
+            type="number"
+            name={key}
+            onChange={handleChange}
+            className="w-full p-2 rounded bg-gray-200 text-black"
+          />
         </div>
       ))}
 
-      <div className="flex justify-end mt-4">
-        <button
-          className="bg-primary_hard px-9 py-3 rounded-2xl text-white"
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
-      </div>
-
-      {/* Display report after submission */}
-      {report && (
-        <div className="mt-10 p-6 border rounded-lg bg-gray-100 text-black">
-          <h2 className="text-2xl font-bold mb-4">Your PCOD Test Report</h2>
-          <p>
-            <strong>Risk Level:</strong> {report.report.riskLevel}
-          </p>
-          <p>
-            <strong>Total Score:</strong> {report.report.totalScore}
-          </p>
-          <div className="mt-4">
-            <strong>Recommendations:</strong>
-            <ul className="list-disc ml-6 mt-2">
-              {report.report.recommendations.map((rec, i) => (
-                <li key={i}>{rec}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
-
-      <ToastContainer position="bottom-right" autoClose={2000} hideProgressBar />
+      <button
+        onClick={handleSubmit}
+        className="mt-4 bg-primary_hard px-6 py-2 rounded-xl text-white w-full text-lg"
+      >
+        Check PCOS Risk
+      </button>
     </div>
   );
 }
