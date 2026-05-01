@@ -83,8 +83,10 @@ export default function Dashboard() {
           </p>
         </div>
         <div className="flex items-center gap-4">
+          <Link to={"/report-history"}>
           <Button variant="ghost">Test Report History</Button>
-          <Link to={"/test"}>
+          </Link>
+          <Link to={"/report"}>
             <Button>+ Add New Test</Button>
           </Link>
           <Bell className="w-6 h-6 text-slate-400" />

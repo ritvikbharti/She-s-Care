@@ -3,7 +3,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 export default function Quiz({ setRisk, setDetected }) {
-
   const [form, setForm] = useState({
     BMI: "",
     Cycle_length: "",
@@ -42,7 +41,13 @@ export default function Quiz({ setRisk, setDetected }) {
       setRisk(res.data.riskPercentage);
       setDetected(res.data.detected);
 
-      toast.success("PCOS Risk Calculated!");
+      await axios.post("http://localhost:5000/api/reports/add", {
+        inputs: payload,
+        riskPercentage: res.data.riskPercentage,
+        detected: res.data.detected
+      });
+
+      toast.success("PCOS Risk Calculated & Saved!");
 
     } catch (err) {
       console.error(err);
@@ -52,7 +57,6 @@ export default function Quiz({ setRisk, setDetected }) {
 
   return (
     <div className="mt-6 bg-black/30 p-6 rounded-xl">
-
       <h2 className="text-xl font-bold mb-4">Medical PCOS Test Inputs</h2>
 
       {Object.keys(form).map((key) => (

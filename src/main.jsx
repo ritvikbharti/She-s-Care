@@ -18,7 +18,10 @@ import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage.jsx";
 import AuthLayout from "./Layouts/AuthLayout.jsx";
 import UseLogin from "./hooks/UseLogin.jsx";
+import ReportHistory from "./pages/Report/ReportHistory";
+import Team from "./pages/TeamPage/Team.jsx";
 import { UserProvider } from "./context/userContext.jsx";
+
 import axios from "axios";
 
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
@@ -87,6 +90,8 @@ function AppRouter() {
         { path: "doctor", element: <Doctor /> },
         { path: "test", element: <Test /> },
         { path: "order", element: <Order /> },
+        { path: "team", element: <Team /> },
+        {path: "/report-history", element: <ReportHistory />}
       ],
     },
     {
