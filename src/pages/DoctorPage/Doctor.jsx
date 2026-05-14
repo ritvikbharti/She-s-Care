@@ -59,32 +59,42 @@ export default function DoctorPage() {
     return matchesSearch && matchesSpec && matchesLoc;
   });
 
-  // ✅ Fixed: sends date, timeSlot, and auth token
   const handleBook = async () => {
-    if (!selectedDate || !selectedSlot) {
-      toast.error("Please select a date and time slot");
-      return;
-    }
+  if (!selectedDate || !selectedSlot) {
+    toast.error("Please select a date and time slot");
+    return;
+  }
 
-    setBooking(true);
-    try {
-      await api.post("/api/appointments", {
-        doctorId: bookingDoctor._id,
-        date: selectedDate,
-        timeSlot: selectedSlot,
-      });
+  const fee = bookingDoctor?.fee || 0;
 
-      toast.success(`Appointment booked with ${bookingDoctor.name}!`);
-      setBookingDoctor(null);
-      setSelectedDate("");
-      setSelectedSlot("");
-    } catch (err) {
-      console.error("Booking error:", err);
-      toast.error(err.response?.data?.message || "Failed to book appointment");
-    } finally {
-      setBooking(false);
-    }
-  };
+  const confirmPay = window.confirm(
+    `This appointment will cost ₹${fee}.\n\nDo you want to continue?`
+  );
+
+  if (!confirmPay) {
+    toast.info("Booking cancelled");
+    return;
+  }
+
+  setBooking(true);
+
+  try {
+    await api.post("/api/appointments", {
+      doctorId: bookingDoctor._id,
+      date: selectedDate,
+      timeSlot: selectedSlot,
+    });
+
+    toast.success(`Appointment booked with ${bookingDoctor.name}!`);
+    setBookingDoctor(null);
+    setSelectedDate("");
+    setSelectedSlot("");
+  } catch (err) {
+    toast.error(err.response?.data?.message || "Failed to book appointment");
+  } finally {
+    setBooking(false);
+  }
+};
 
   if (loading)
     return <p className="text-white text-center mt-10">Loading doctors...</p>;
@@ -215,6 +225,9 @@ export default function DoctorPage() {
                 </button>
               ))}
             </div>
+            <p className="text-sm text-green-400 mb-4">
+  Booking Fee: ₹{bookingDoctor.fee}
+</p>
 
             <div className="flex gap-3">
               <button

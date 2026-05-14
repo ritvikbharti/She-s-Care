@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
+import api from "../../utils/api"; // ✅ use shared axios instance
 
 export default function Quiz({ setRisk, setDetected }) {
   const [form, setForm] = useState({
@@ -39,21 +39,16 @@ export default function Quiz({ setRisk, setDetected }) {
         Endometrium: Number(form.Endometrium),
       };
 
-      const mlRes = await axios.post(
-        "http://localhost:5000/api/ml/pcos-predict",
-        payload
-      );
+      // ✅ Call backend ML API (Node will call Flask)
+      const mlRes = await api.post("/api/ml/pcos-predict", payload);
 
       const { riskPercentage, detected } = mlRes.data;
 
       setRisk(riskPercentage);
       setDetected(detected);
 
-      const storedUser = localStorage.getItem("user");
-      const userId = storedUser ? JSON.parse(storedUser).id : null;
-
-      await axios.post("http://localhost:5000/api/reports/add", {
-        userId,
+      // ✅ Save report
+      await api.post("/api/reports/add", {
         inputs: payload,
         riskPercentage,
         detected,
@@ -62,9 +57,7 @@ export default function Quiz({ setRisk, setDetected }) {
       toast.success("PCOS Risk Calculated & Saved!");
     } catch (err) {
       console.error("Quiz error:", err);
-      toast.error(
-        err.response?.data?.message || "Prediction failed. Please try again."
-      );
+      toast.error(err.response?.data?.message || "Prediction failed. Please try again.");
     }
   };
 
