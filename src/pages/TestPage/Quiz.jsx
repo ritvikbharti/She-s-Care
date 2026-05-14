@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import api from "../../utils/api"; // ✅ use shared axios instance
+import api from "../../utils/api"; 
+
 
 export default function Quiz({ setRisk, setDetected }) {
   const [form, setForm] = useState({
@@ -39,7 +40,7 @@ export default function Quiz({ setRisk, setDetected }) {
         Endometrium: Number(form.Endometrium),
       };
 
-      // ✅ Call backend ML API (Node will call Flask)
+      // Call backend ML API (Node will call Flask)
       const mlRes = await api.post("/api/ml/pcos-predict", payload);
 
       const { riskPercentage, detected } = mlRes.data;
@@ -47,12 +48,12 @@ export default function Quiz({ setRisk, setDetected }) {
       setRisk(riskPercentage);
       setDetected(detected);
 
-      // ✅ Save report
+      // Save report
       await api.post("/api/reports/add", {
-        inputs: payload,
-        riskPercentage,
-        detected,
-      });
+  inputs: payload,
+  riskPercentage,
+  detected,
+});
 
       toast.success("PCOS Risk Calculated & Saved!");
     } catch (err) {

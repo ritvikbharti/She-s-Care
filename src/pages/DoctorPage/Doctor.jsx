@@ -25,7 +25,7 @@ export default function DoctorPage() {
   const [specializationFilter, setSpecializationFilter] = useState("all");
   const [locationFilter, setLocationFilter] = useState("all");
 
-  // ✅ Booking modal state
+  // Booking modal state
   const [bookingDoctor, setBookingDoctor] = useState(null);
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedSlot, setSelectedSlot] = useState("");
