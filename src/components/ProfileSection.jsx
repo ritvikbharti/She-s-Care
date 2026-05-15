@@ -7,25 +7,54 @@ import axios from "axios";
 
 const ProfileSection = () => {
   const [user, setUser] = useState(null);
+  const [wallet, setWallet] = useState({ balance: 0 });
+const [reports, setReports] = useState([]);
+
 
   useEffect(() => {
     const fetchUser = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        if (!token) return;
+  try {
 
-        const res = await axios.get(
-          "https://she-care-backend-63p6.onrender.com/api/auth/me",
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
+    const token = localStorage.getItem("token");
 
-        setUser(res.data);
-      } catch (error) {
-        console.error("Error fetching user:", error.response?.data || error.message);
-      }
+    if (!token) return;
+
+    const headers = {
+      Authorization: `Bearer ${token}`,
     };
+
+    const [userRes, walletRes, reportRes] =
+      await Promise.all([
+        axios.get(
+          "https://she-care-backend-63p6.onrender.com/api/auth/me",
+          { headers }
+        ),
+
+        axios.get(
+          "https://she-care-backend-63p6.onrender.com/api/wallet/balance",
+          { headers }
+        ),
+
+        axios.get(
+          "https://she-care-backend-63p6.onrender.com/api/reports/my",
+          { headers }
+        ),
+      ]);
+
+    setUser(userRes.data);
+
+    setWallet(walletRes.data);
+
+    setReports(reportRes.data);
+
+  } catch (error) {
+
+    console.error(
+      "Error fetching profile data:",
+      error.response?.data || error.message
+    );
+  }
+};
 
     fetchUser();
   }, []);
@@ -95,12 +124,16 @@ const ProfileSection = () => {
           <div className="grid grid-cols-2 gap-2 mt-4">
             <div className="rounded-2xl p-2 bg-white/5 border border-white/10 text-center">
               <p className="text-[10px] text-white/60">Reports</p>
-              <p className="text-sm font-bold text-indigo-400">12</p>
+              <p className="text-sm font-bold text-indigo-400">
+  {reports.length}
+</p>
             </div>
 
             <div className="rounded-2xl p-2 bg-white/5 border border-white/10 text-center">
               <p className="text-[10px] text-white/60">Wallet</p>
-              <p className="text-sm font-bold text-green-400">₹ 500</p>
+              <p className="text-sm font-bold text-green-400">
+  ₹ {wallet.balance || 0}
+</p>
             </div>
           </div>
         </div>
