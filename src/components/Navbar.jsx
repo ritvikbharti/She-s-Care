@@ -7,10 +7,19 @@ import {
 } from "react-icons/fa";
 import { FaUserDoctor } from "react-icons/fa6";
 import { MdAddShoppingCart } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { GrDocumentTest } from "react-icons/gr";
 
-const Navbar = () => {
+const Navbar = ({ onLogout }) => {
+  const navigate = useNavigate();
+const handleLogout = () => {
+
+  localStorage.clear();
+
+  navigate("/login", {
+    replace: true
+  });
+};
   return (
     <div className="fixed py-7 items-center mx-6 h-full">
       <nav className="bg-primary_hard rounded-3xl w-20 h-full flex flex-col items-center py-8">
@@ -76,12 +85,12 @@ const Navbar = () => {
         </ul>
 
         <div className="mt-auto text-white text-2xl">
-          <NavLink
-            to="/login"
-            className="hover:text-indigo-400"
-          >
-            <FaSignOutAlt />
-          </NavLink>
+          <button
+  onClick={handleLogout}
+  className="hover:text-indigo-400"
+>
+  <FaSignOutAlt />
+</button>
         </div>
 
       </nav>

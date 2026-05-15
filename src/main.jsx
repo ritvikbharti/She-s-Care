@@ -84,12 +84,14 @@ function AppRouter() {
   const handleLogin = () => setIsLoggedIn(true);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    localStorage.removeItem("isLoggedIn");
-    setIsLoggedIn(false);
-  };
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  localStorage.removeItem("isLoggedIn");
 
+  setIsLoggedIn(false);
+
+  window.location.href = "/login";
+};
   const router = useMemo(() => {
     return buildRouter(isLoggedIn, handleLogin, handleLogout);
   }, [isLoggedIn]);
