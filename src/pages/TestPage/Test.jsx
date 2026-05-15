@@ -47,9 +47,10 @@ export default function Test() {
             <h2 className="text-3xl font-bold">Risk: {risk.toFixed(2)}%</h2>
 
             {detected === 1 ? (
+            
               <p className="text-red-400 text-lg mt-2">⚠️ High Risk of PCOS</p>
             ) : (
-              <p className="text-green-400 text-lg mt-2">✅ Low Risk of PCOS</p>
+              <p className="text-green-400 text-lg mt-2">{detected}✅ Low Risk of PCOS</p>
             )}
 
             {/* Progress Bar */}

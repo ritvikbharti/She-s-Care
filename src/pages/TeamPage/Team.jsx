@@ -20,7 +20,7 @@ export default function Team() {
       ],
     },
     {
-      title: "Reserach Paper",
+      title: "Review Paper",
       members: [
         {
           name: "Hari sai singulri",
@@ -57,10 +57,15 @@ export default function Team() {
           role: "Frontend Developer",
           desc: "Developed APIs and handled database integration.",
         },
+        {
+          name: "Ritvik Bharti",
+          role: "Backend Developer",
+          desc: "Developed APIs and handled database integration.",
+        },
       ],
     },
     {
-      title: "Metor Guider",
+      title: "Mentor Guider",
       members: [
         {
           name: "Souhardya Bose",
