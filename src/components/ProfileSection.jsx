@@ -3,7 +3,9 @@ import { HiBell } from "react-icons/hi";
 import { FiLogOut } from "react-icons/fi";
 import userImg from "../assets/user.png";
 import Chatbot from "../pages/chatbot/Chatbot";
-import axios from "axios";
+// import axios from "axios";
+import api from "../utils/api";
+
 
 const ProfileSection = () => {
   const [user, setUser] = useState(null);
@@ -25,17 +27,17 @@ const [reports, setReports] = useState([]);
 
     const [userRes, walletRes, reportRes] =
       await Promise.all([
-        axios.get(
+        api.get(
           "https://she-care-backend-63p6.onrender.com/api/auth/me",
           { headers }
         ),
 
-        axios.get(
+        api.get(
           "https://she-care-backend-63p6.onrender.com/api/wallet/balance",
           { headers }
         ),
 
-        axios.get(
+        api.get(
           "https://she-care-backend-63p6.onrender.com/api/reports/my",
           { headers }
         ),

@@ -164,6 +164,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios"; //  connect to backend
 import "react-toastify/dist/ReactToastify.css";
+import api from "../../utils/api";
 
 const RegistrationPage = ({ onLogin }) => {
   const [formData, setFormData] = useState({
@@ -198,7 +199,7 @@ const RegistrationPage = ({ onLogin }) => {
       const API_URL = process.env.REACT_APP_API_URL?.trim();
       console.log(API_URL);
       
-      const res = await axios.post(`https://she-care-backend-63p6.onrender.com/api/auth/register`, {
+      const res = await api.post(`https://she-care-backend-63p6.onrender.com/api/auth/register`, {
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,

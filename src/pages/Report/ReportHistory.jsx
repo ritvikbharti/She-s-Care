@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import api from "../../utils/api"; // ✅ shared axios instance
+import api from "../../utils/api"; //  shared axios instance
 import { toast } from "react-toastify";
 import { Card, CardContent } from "../../components/Card1";
 import { Button } from "../../components/button1";
@@ -12,8 +12,8 @@ export default function ReportHistory() {
 
   const fetchReports = async () => {
     try {
-      // ✅ Token is auto-attached by the api interceptor
-      // ✅ Backend now filters by userId (see reportRoutes fix)
+      // Token is auto-attached by the api interceptor
+      // Backend now filters by userId (see reportRoutes fix)
       const res = await api.get("/api/reports/my");
       setReports(res.data);
     } catch (error) {
