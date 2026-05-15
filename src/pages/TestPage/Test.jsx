@@ -46,7 +46,7 @@ export default function Test() {
           <div className="mt-6 bg-black/40 p-5 rounded-xl text-center">
             <h2 className="text-3xl font-bold">Risk: {risk.toFixed(2)}%</h2>
 
-            {detected === 1 ? (
+            {detected  ? (
             
               <p className="text-red-400 text-lg mt-2">⚠️ High Risk of PCOS</p>
             ) : (
